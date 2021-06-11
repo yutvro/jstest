@@ -37,6 +37,12 @@ const JD_API_HOST = `https://api.m.jd.com/client.action?functionId=`;
         $.msg($.name, `【提示】京东账号${i ? i + 1 : "" } cookie已过期！请先获取cookie\n直接使用NobyDa的京东签到获取`, 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
         continue;
       }
+	    shareCodeList=["ZXTKT018v_VzQRob8VLRJxKb1AFjRWn6-7zx55awQ","ZXTKT0225KkcRB9K8lHVdhL0lP4JdAFjRWn6-7zx55awQ","ZXTKT012vPt6RRgQ91TSFjRWn6-7zx55awQ","ZXTKT0205KkcNkptry6lVWSt7r17FjRWn6-7zx55awQ","ZXTKT0205KkcH2Vkpja9fl-G_KF3FjRWn6-7zx55awQ",
+				"ZXTKT0225KkcRktIoVaDIBL0wPZZdQFjRWn6-7zx55awQ","ZXTKT0225KkcRx8Rp1XXIBLwxqIOIgFjRWn6-7zx55awQ","ZXTKT018v_V6QRsb_F3XIR-b1AFjRWn6-7zx55awQ"]
+            for (let i in shareCodeList) {
+		  		console.log("助力 "+shareCodeList[i])
+              if (shareCodeList[i]) await zoo_help(shareCodeList[i]);
+            }
       console.log('\n\n京东账号：'+merge.nickname + ' 任务开始')
       await zoo_sign()
       await zoo_pk_getHomeData();
@@ -644,7 +650,7 @@ function zoo_getHomeData(inviteId= "",timeout = 0) {
             //await zoo_pk_assistGroup()
             //if (data.data.result.homeMainInfo.raiseInfo.buttonStatus === 1 )
             if (parseInt(data.data.result.homeMainInfo.raiseInfo.totalScore) >= parseInt(data.data.result.homeMainInfo.raiseInfo.nextLevelScore) ) await zoo_raise(1000)
-            await zoo_getHomeData('');//ZXTKT0225KkcRBka_FPTJBjzkv9YfAFjRWn6-7zx55awQ
+            await zoo_getHomeData('ZXTKT012vPt6RRgQ91TSFjRWn6-7zx55awQ');//ZXTKT0225KkcRBka_FPTJBjzkv9YfAFjRWn6-7zx55awQ
             await zoo_getTaskDetail()
             await zoo_getTaskDetail("","app")
           } else {
@@ -659,7 +665,41 @@ function zoo_getHomeData(inviteId= "",timeout = 0) {
     },timeout)
   })
 }
-
+function zoo_help(inviteId = "",timeout = 0) {
+  return new Promise((resolve) => {
+    setTimeout( ()=>{
+      let url = {
+        url : `${JD_API_HOST}zoo_getHomeData`  ,
+        headers : {
+          'Origin' : `https://wbbny.m.jd.com`,
+          'Cookie' : cookie,
+          'Connection' : `keep-alive`,
+          'Accept' : `application/json, text/plain, */*`,
+          'Host' : `api.m.jd.com`,
+          'User-Agent' : `jdapp;iPhone;9.2.6;14.1;`,
+          'Accept-Encoding' : `gzip, deflate, br`,
+          'Accept-Language' : `zh-cn`,
+          'Refer' : `https://bunearth.m.jd.com/babelDiy/Zeus/4SJUHwGdUQYgg94PFzjZZbGZRjDd/index.html?jmddToSmartEntry=login`
+        },
+        body : `functionId=zoo_getHomeData&body=${JSON.stringify({"taskId": 2,"inviteId":inviteId,"actionType":1,"ss" :getBody()})}&client=wh5&clientVersion=1.0.0`
+      }
+      //console.log(url.body)
+      $.post(url, async (err, resp, data) => {
+        try {
+          //console.log('商圈助力：' + data)
+          data = JSON.parse(data);
+		  console.log(data)
+			//  let taskBody = `functionId=zoo_collectScore&body=${JSON.stringify({"taskId": 2,"inviteId":inviteId,"actionType":1,"ss" : getBody()})}&client=wh5&clientVersion=1.0.0`
+            //  await zoo_collectScore(taskBody, 1000)
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve()
+        }
+      })
+    },timeout)
+  })
+}
 function zoo_raise(timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
@@ -751,7 +791,7 @@ function zoo_pk_getHomeData(inviteId = "",timeout = 0) {
           if (inviteId !== "") {
             await $.getScript("https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/memo/jd_nianBeastShareCode.txt").then((text) => (shareCodeList = text ? text.split('\n') : []))
             for (let i in shareCodeList) {
-              if (shareCodeList[i]) await zoo_pk_assistGroup(shareCodeList[i]);
+              //if (shareCodeList[i]) await zoo_pk_assistGroup(shareCodeList[i]);
             }
             //await zoo_pk_assistGroup(inviteId);
           } else {
