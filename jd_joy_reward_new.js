@@ -12,7 +12,7 @@ const fs = require('fs')
 const $ = new Env("宠汪汪兑换二代目")
 console.log('\n====================Hello World====================\n')
 
-let target = process.env.JD_JOY_REWARD_NAME ? parseInt(process.env.JD_JOY_REWARD_NAME) : 500;
+let target = process.env.JD_JOY_REWARD_NAME ? parseInt(process.env.JD_JOY_REWARD_NAME) : 20;
 let validate = '', cookiesArr = [];
 
 !(async () => {
