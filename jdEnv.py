@@ -64,4 +64,4 @@ def root():
         return True
     else:
         print('珍爱ck，远离docker')
-        return False
+        return True
