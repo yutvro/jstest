@@ -114,7 +114,7 @@ class FoodRunning:
         for i in range(1, 4):
             res = self.mission('OpenBox', {"awardId": f"jdRunningBox{i}"})
             print('拆盒子：', res['data']['data']['msg'])
-			time.sleep(3)
+            time.sleep(3)
 
 
 if __name__ == '__main__':
