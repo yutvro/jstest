@@ -119,6 +119,7 @@ class FoodRunning:
 
 if __name__ == '__main__':
     if root():
-        ck = cookies[0]
-        fr = FoodRunning(ck)
-        fr.run()
+        for ck in cookies:
+			#ck = cookies[0]
+			fr = FoodRunning(ck)
+			fr.run()
