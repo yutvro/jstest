@@ -30,7 +30,7 @@ if (process.env.joyinviterPin) {
   joyinviterPin = process.env.joyinviterPin;
 }
 
-
+joyinviterPin="k1Jr1og0VN_jwblEmbbAEg"
 
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
