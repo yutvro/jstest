@@ -20,7 +20,48 @@ const ShHelpAuthorFlag = false;//是否助力作者SH  true 助力，false 不�
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [];
 $.cookie = '';
-$.inviteList = [];
+$.inviteList = [{
+            'ues': 'ss',
+            // 'secretp': $.secretp,
+            'inviteId': 'HcmphO2sQQunfIecEdM7ubdtYkzEiZ2UcZSlgKKR4ar7nP28jpdig0T1Hz74qEnyE_Fw6DaNrwxD',
+            'max': false
+          },
+				{
+            'ues': 'ss',
+            // 'secretp': $.secretp,
+            'inviteId': 'HcmphLbwLlXYA9D4fYp2pJ-oVEQUdKZH-8l7x-j2NlWnWtaaX6o530hdUPfhl9cFy7oyf6cuZJeDNm1h1A',
+            'max': false
+          },{
+            'ues': 'ss',
+            // 'secretp': $.secretp,
+            'inviteId': 'HcmphO2sSAumfIqTF9U2uTW0rufxeTOY43hY_0-GvNFe-Xqwq2HVwMRt3rfhI7fpV7a5n0JmD_qy',
+            'max': false
+          },{
+            'ues': 'ss',
+            // 'secretp': $.secretp,
+            'inviteId': 'HcmphLbwLg6iLYSfFYI71hdq5HmRvDtM2S1EfCzlcAUyDlAw67i76iBJBRLJf3XsbeZKgv2Q79QRjBK4UktF2w',
+            'max': false
+          },{
+            'ues': 'ss',
+            // 'secretp': $.secretp,
+            'inviteId': 'HcmphO6iSA-ld4GaEph_mnZwG9b8Iyl6QF3v9Km4rNB61T9KZLvKf3QkfaEU8vA',
+            'max': false
+          },{
+            'ues': 'ss',
+            // 'secretp': $.secretp,
+            'inviteId': 'HcmphLbwLnz3CtngZaFNj8ukcFypVyG1xdpZzcpFoNyrybPVUELw_R-EW4nVtglBDx5ZfFnfbkBLGU-kHQ',
+            'max': false
+          },{
+            'ues': 'ss',
+            // 'secretp': $.secretp,
+            'inviteId': 'HcmphLbwLgz2L9eYQ9Q71jTCblJk3LKVMBPEFaLSre0qGUleBu82PPw7C5qWuia_bkt-0s0yuqGFybWMG0J7sQ',
+            'max': false
+          },{
+            'ues': 'ss',
+            // 'secretp': $.secretp,
+            'inviteId': 'HcmphLbwLg2idtGbF9Q70rAA5zUwefyQIZeyij1k2G6JD32nfsGkOPKbL8Oy3fLskCvM_5IikzzmNjz_gIL0Nw',
+            'max': false
+          },];
 $.secretpInfo = {};
 $.ShInviteList = ['HcmphO2sQQunfIecEdM7ubdtYkzEiZ2UcZSlgKKR4ar7nP28jpdig0T1Hz74qEnyE_Fw6DaNrwxD'];
 $.innerShInviteList = [
