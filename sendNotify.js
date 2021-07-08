@@ -202,12 +202,13 @@ async function sendNotify(text, desp, params = {}) {
 	//}*/
 	let des1=substr(desp,0,1000);
 	let index2=des1.length;
-	let des2=desp.substr(index2,desp.length-index2);
-	console.log(des1)
+	let des2=desp.substr(1001,2000);
+	let des3=desp.substr(2001,3000);
 		await sendNotify1(text,des1,params)
-	console.log(des2)
 		if(des2)
 		await sendNotify1(text,des2,params)
+		if(des3)
+		await sendNotify1(text,des3,params)
 }
 async function sendNotify1(text, desp, params = {}) {
   //提供6种通知
