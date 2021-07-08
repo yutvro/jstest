@@ -22,7 +22,7 @@ let cookiesArr = [];
 $.cookie = '';
 $.inviteList = [];
 $.secretpInfo = {};
-$.ShInviteList = [];
+$.ShInviteList = ['HcmphO2sQQunfIecEdM7ubdtYkzEiZ2UcZSlgKKR4ar7nP28jpdig0T1Hz74qEnyE_Fw6DaNrwxD'];
 $.innerShInviteList = [
   'HcmphO2sQQunfIecEdM7ubdtYkzEiZ2UcZSlgKKR4ar7nP28jpdig0T1Hz74qEnyE_Fw6DaNrwxD'
 ];
