@@ -2,7 +2,7 @@
 
 https://wbbny.m.jd.com/babelDiy/Zeus/2rtpffK8wqNyPBH6wyUDuBKoAbCt/index.html
 
-cron 12 7-23 * * * https://raw.githubusercontent.com/smiek2221/scripts/master/jd_summer_movement_help.js
+cron 12 7-14 * * * https://raw.githubusercontent.com/smiek2221/scripts/master/jd_summer_movement_help.js
 
 */
 
@@ -28,50 +28,11 @@ const ShHelpAuthorFlag = false;//是否助力作者SH  true 助力，false 不�
 let cookiesArr = [];
 $.cookie = '';
 $.secretpInfo = {};
-$.inviteList = [{
-            'ues': 'ss',
-            // 'secretp': $.secretp,
-            'inviteId': 'HcmphO2sQQunfIecEdM7ubdtYkzEiZ2UcZSlgKKR4ar7nP28jpdig0T1Hz74qEnyE_Fw6DaNrwxD',
-            'max': false
-          },
-				{
-            'ues': 'ss',
-            // 'secretp': $.secretp,
-            'inviteId': 'HcmphLbwLlXYA9D4fYp2pJ-oVEQUdKZH-8l7x-j2NlWnWtaaX6o530hdUPfhl9cFy7oyf6cuZJeDNm1h1A',
-            'max': false
-          },{
-            'ues': 'ss',
-            // 'secretp': $.secretp,
-            'inviteId': 'HcmphO2sSAumfIqTF9U2uTW0rufxeTOY43hY_0-GvNFe-Xqwq2HVwMRt3rfhI7fpV7a5n0JmD_qy',
-            'max': false
-          },{
-            'ues': 'ss',
-            // 'secretp': $.secretp,
-            'inviteId': 'HcmphLbwLg6iLYSfFYI71hdq5HmRvDtM2S1EfCzlcAUyDlAw67i76iBJBRLJf3XsbeZKgv2Q79QRjBK4UktF2w',
-            'max': false
-          },{
-            'ues': 'ss',
-            // 'secretp': $.secretp,
-            'inviteId': 'HcmphO6iSA-ld4GaEph_mnZwG9b8Iyl6QF3v9Km4rNB61T9KZLvKf3QkfaEU8vA',
-            'max': false
-          },{
-            'ues': 'ss',
-            // 'secretp': $.secretp,
-            'inviteId': 'HcmphLbwLnz3CtngZaFNj8ukcFypVyG1xdpZzcpFoNyrybPVUELw_R-EW4nVtglBDx5ZfFnfbkBLGU-kHQ',
-            'max': false
-          },{
-            'ues': 'ss',
-            // 'secretp': $.secretp,
-            'inviteId': 'HcmphLbwLgz2L9eYQ9Q71jTCblJk3LKVMBPEFaLSre0qGUleBu82PPw7C5qWuia_bkt-0s0yuqGFybWMG0J7sQ',
-            'max': false
-          },{
-            'ues': 'ss',
-            // 'secretp': $.secretp,
-            'inviteId': 'HcmphLbwLg2idtGbF9Q70rAA5zUwefyQIZeyij1k2G6JD32nfsGkOPKbL8Oy3fLskCvM_5IikzzmNjz_gIL0Nw',
-            'max': false
-          },];
+$.ShInviteList = [];
 $.innerShInviteList = [
-  'HcmphO2sQQunfIecEdM7ubdtYkzEiZ2UcZSlgKKR4ar7nP28jpdig0T1Hz74qEnyE_Fw6DaNrwxD'
+  'H8mphLbwLgz3e4GeFdc0g9GS9KyvaS3S',
+  'H8mphLbwLn_LHtvAULB0thOUapqKwhU',
+  'H8mphLbwLnPnJ8L9XqdUv7O1wfsqrXQ'
 ];
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -94,15 +55,18 @@ const UA = $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT :
   console.log('活动入口：京东APP-》 首页-》 右边小窗口（点我赢千元）\n' +
       'SH互助：内部账号自行互助(排名靠前账号得到的机会多),多余的助力次数会默认助力作者内置助力码\n' +
       '本脚本只助力SH\n' +
+      '百元守卫战 开启时间早上8点过后\n' +
       '活动时间：2021-07-08至2021-08-08\n' +
       '脚本更新时间：2021年7月9日 9点00分\n'
       );
       if(Number(summer_movement_ShHelpFlag) === 1){
-        console.log('您设置了 【百元守卫站SH】✅ || 互助✅')
+        console.log('您设置了 【百元守卫战SH】✅ || 互助✅')
       }else if(Number(summer_movement_ShHelpFlag) === 2){
-        console.log('您设置了 【百元守卫站SH】✅ || 互助❌')
+        console.log('您设置了 【百元守卫战SH】✅ || 互助❌')
       }else if(Number(summer_movement_ShHelpFlag) === 0){
-        console.log('您设置了 【百元守卫站SH】❌ || 互助❌')
+        console.log('您设置了 【百元守卫战SH】❌ || 互助❌')
+      }else{
+        console.log('原 summer_movement_ShHelpFlag 变量不兼容请修改 0不开启也不助力 1开启并助力 2开启但不助力')
       }
 
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -135,9 +99,9 @@ const UA = $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT :
     // }
     // $.secretp = $.secretpInfo[$.UserName];
     $.index = i + 1;
-    if (new Date().getUTCHours() + 8 >= 9) {
+    if (new Date().getUTCHours() + 8 >= 8) {
       if(Number(summer_movement_ShHelpFlag) === 1){
-        if ($.ShInviteList && $.ShInviteList.length) console.log(`\n******开始内部京东账号【百元守卫站SH】助力*********\n`);
+        if ($.ShInviteList && $.ShInviteList.length) console.log(`\n******开始内部京东账号【百元守卫战SH】助力*********\n`);
         for (let i = 0; i < $.ShInviteList.length && $.canHelp; i++) {
           console.log(`${$.UserName} 去助力SH码 ${$.ShInviteList[i]}`);
           $.inviteId = $.ShInviteList[i];
@@ -167,16 +131,20 @@ async function movement() {
     $.taskList = [];
     $.shopSign = ``;
     $.userInfo = ''
-    if(Number(summer_movement_ShHelpFlag) === 1 || Number(summer_movement_ShHelpFlag) === 2){
-      $.Shend = false
-      await $.wait(1000);
-      console.log('\n百元守卫站')
-      await takePostRequest('olypicgames_guradHome');
-      await $.wait(1000);
-      if($.Shend){
-        await takePostRequest('olympicgames_receiveCash');
+    if (new Date().getUTCHours() + 8 >= 8) {
+      console.log('\n百元守卫战')
+      if(Number(summer_movement_ShHelpFlag) === 1 || Number(summer_movement_ShHelpFlag) === 2){
+        $.Shend = false
         await $.wait(1000);
+        await takePostRequest('olypicgames_guradHome');
+        await $.wait(1000);
+        if($.Shend){
+          await takePostRequest('olympicgames_receiveCash');
+          await $.wait(1000);
+        }
       }
+    }else{
+      console.log('\n百元守卫战开启时间还没到')
     }
     
   } catch (e) {
@@ -249,6 +217,7 @@ async function dealReturn(type, res) {
       }
       break;
     case 'olypicgames_guradHome':
+      console.log(res)
       if (data.data && data.data.bizCode === 0) {
         console.log(`SH互助码：${data.data.result && data.data.result.inviteId || '助力已满，获取助力码失败\n'}`);
         if (data.data.result && data.data.result.inviteId) {
