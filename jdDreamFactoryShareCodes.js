@@ -16,7 +16,11 @@ let shareCodes = [
 	  '6fvc6SL6o9DYj4Y4czt7qw==@MZi7exvogQ2x-9pWU3hPag==@mIKQTB4C8OE6AuNvXzaCLw==@GDU5ONT4DRM2wwUaK5p6nA==@m_LHBcX7do_OQ5qAxLg-Xw==@rFfpiK7zwAbg4964VrvX5g==@3fC3jOIM7F5WbTai2NMR6Q==@ohjNqJLST47CO17bT4xsKw==',//账号一的好友shareCode,不同好友中间用@符号隔开
 	   '6fvc6SL6o9DYj4Y4czt7qw==@MZi7exvogQ2x-9pWU3hPag==@mIKQTB4C8OE6AuNvXzaCLw==@GDU5ONT4DRM2wwUaK5p6nA==@m_LHBcX7do_OQ5qAxLg-Xw==@rFfpiK7zwAbg4964VrvX5g==@3fC3jOIM7F5WbTai2NMR6Q==@ohjNqJLST47CO17bT4xsKw==',//账号一的好友shareCode,不同好友中间用@符号隔开
 	    '6fvc6SL6o9DYj4Y4czt7qw==@MZi7exvogQ2x-9pWU3hPag==@mIKQTB4C8OE6AuNvXzaCLw==@GDU5ONT4DRM2wwUaK5p6nA==@m_LHBcX7do_OQ5qAxLg-Xw==@rFfpiK7zwAbg4964VrvX5g==@3fC3jOIM7F5WbTai2NMR6Q==@ohjNqJLST47CO17bT4xsKw==',//账号一的好友shareCode,不同好友中间用@符号隔开
-		 'MZi7exvogQ2x-9pWU3hPag==@mIKQTB4C8OE6AuNvXzaCLw==@GDU5ONT4DRM2wwUaK5p6nA==@m_LHBcX7do_OQ5qAxLg-Xw==@rFfpiK7zwAbg4964VrvX5g==@3fC3jOIM7F5WbTai2NMR6Q==',//账号一的好友shareCode,不同好友中间用@符号隔开
+		 'MZi7exvogQ2x-9pWU3hPag==@mIKQTB4C8OE6AuNvXzaCLw==@GDU5ONT4DRM2wwUaK5p6nA==@m_LHBcX7do_OQ5qAxLg-Xw==@rFfpiK7zwAbg4964VrvX5g==@3fC3jOIM7F5WbTai2NMR6Q==@jb8K5BZH_9m1Rf4jGq8Mhw==@mNbFFQSpb5B8dxVMj3-BHA==@NQD23MD2P7gpFQWOBYgufg==',//账号一的好友shareCode,不同好友中间用@符号隔开
+ 'MZi7exvogQ2x-9pWU3hPag==@mIKQTB4C8OE6AuNvXzaCLw==@GDU5ONT4DRM2wwUaK5p6nA==@m_LHBcX7do_OQ5qAxLg-Xw==@rFfpiK7zwAbg4964VrvX5g==@3fC3jOIM7F5WbTai2NMR6Q==@jb8K5BZH_9m1Rf4jGq8Mhw==@mNbFFQSpb5B8dxVMj3-BHA==@NQD23MD2P7gpFQWOBYgufg==',//账号一的好友shareCode,不同好友中间用@符号隔开
+ 'MZi7exvogQ2x-9pWU3hPag==@mIKQTB4C8OE6AuNvXzaCLw==@GDU5ONT4DRM2wwUaK5p6nA==@m_LHBcX7do_OQ5qAxLg-Xw==@rFfpiK7zwAbg4964VrvX5g==@3fC3jOIM7F5WbTai2NMR6Q==@jb8K5BZH_9m1Rf4jGq8Mhw==@mNbFFQSpb5B8dxVMj3-BHA==@NQD23MD2P7gpFQWOBYgufg==',//账号一的好友shareCode,不同好友中间用@符号隔开
+ 'MZi7exvogQ2x-9pWU3hPag==@mIKQTB4C8OE6AuNvXzaCLw==@GDU5ONT4DRM2wwUaK5p6nA==@m_LHBcX7do_OQ5qAxLg-Xw==@rFfpiK7zwAbg4964VrvX5g==@3fC3jOIM7F5WbTai2NMR6Q==@jb8K5BZH_9m1Rf4jGq8Mhw==@mNbFFQSpb5B8dxVMj3-BHA==@NQD23MD2P7gpFQWOBYgufg==',//账号一的好友shareCode,不同好友中间用@符号隔开
+ 'MZi7exvogQ2x-9pWU3hPag==@mIKQTB4C8OE6AuNvXzaCLw==@GDU5ONT4DRM2wwUaK5p6nA==@m_LHBcX7do_OQ5qAxLg-Xw==@rFfpiK7zwAbg4964VrvX5g==@3fC3jOIM7F5WbTai2NMR6Q==@jb8K5BZH_9m1Rf4jGq8Mhw==@mNbFFQSpb5B8dxVMj3-BHA==@NQD23MD2P7gpFQWOBYgufg==',//账号一的好友shareCode,不同好友中间用@符号隔开
 
 ]
 // 判断github action里面是否有京喜工厂互助码
