@@ -45,7 +45,13 @@ var axios_1 = require("axios");
 var TS_USER_AGENTS_1 = require("./JS_USER_AGENTS");
 var CryptoJS = require('crypto-js');
 var appId = 10028, fingerprint, token, enCryptMethodJD;
-var cookie = '', cookiesArr = [], res = '', shareCodes = [];
+var cookie = '', cookiesArr = [], res = '', shareCodes = [
+"F23226A0E168CB913AA69AAEFD2C5E678EB154AC03E9086890E68991ED6174B2",
+"078588C361509E29916CCDA9265D316D8C780FB83134C92B7266DFC4612F07CC",
+"C0028153A0BEBAFFF2CA8C8CBB71DFB17E2AC5D48F11FAC8DA3C0BCF3BD00674",
+"17F7E5B37B1EA804939C2C8BE3F35E1085C690FCBCF24A959F66355E2E64A87F",
+"E2618D1A71364A3E172E38194329EB3C47B22242D29B302092E24C8652E7DED5",
+];
 var UserName, index, isLogin, nickName;
 !(function () { return __awaiter(void 0, void 0, void 0, function () {
     var i, tasks, _i, _a, e, employ, _b, _c, t, _d, _e, b, i, j;
