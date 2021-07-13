@@ -13,6 +13,7 @@
 import {format} from 'date-fns';
 import axios from 'axios';
 import USER_AGENT from './TS_USER_AGENTS';
+import {Md5} from 'ts-md5'
 import * as dotenv from 'dotenv';
 
 const CryptoJS = require('crypto-js')
@@ -25,8 +26,12 @@ let cookie: string = '', cookiesArr: Array<string> = [], res: any = '', shareCod
 "C0028153A0BEBAFFF2CA8C8CBB71DFB17E2AC5D48F11FAC8DA3C0BCF3BD00674",
 "17F7E5B37B1EA804939C2C8BE3F35E1085C690FCBCF24A959F66355E2E64A87F",
 "E2618D1A71364A3E172E38194329EB3C47B22242D29B302092E24C8652E7DED5",
+"E2618D1A71364A3E172E38194329EB3C5C055E51ADBE8B77C80D890E92987B69",
+"F0CA50D50CE659E5A672C38F39A4C8124FD9AF9EA069DD5D9359A96B6D439C9A",
+"F0CA50D50CE659E5A672C38F39A4C8124FD9AF9EA069DD5D9359A96B6D439C9A",
+"9105AA37CA35BA769444D3F44F5F92C62CEEC37DFEE7FF0B0EFCAE7D8B73E7A6",
 ];
-let CFD_HELP_HW: string = process.env.CFD_HELP_HW ? process.env.CFD_HELP_HW : "false";
+let CFD_HELP_HW: string = process.env.CFD_HELP_HW ? process.env.CFD_HELP_HW : "true";
 console.log('帮助HelloWorld:', CFD_HELP_HW)
 let CFD_HELP_POOL: string = process.env.CFD_HELP_POOL ? process.env.CFD_HELP_POOL : "true";
 console.log('帮助助力池:', CFD_HELP_POOL)
@@ -50,6 +55,44 @@ let UserName: string, index: number, isLogin: boolean, nickName: string
     } catch (e) {
       console.log(e)
     }
+
+    let dwUserId: number = 1
+    // 助力奖励
+    while (1) {
+      res = await api('story/helpdraw', '_cfd_t,bizCode,dwEnv,dwUserId,ptag,source,strZone', {dwUserId: dwUserId})
+      dwUserId++
+      if (res.iRet === 0) {
+        console.log('助力奖励领取成功', res.Data.ddwCoin)
+      } else if (res.iRet === 1000)
+        break
+      else {
+        console.log('助力奖励领取其他错误:', res)
+        break
+      }
+      await wait(2000)
+    }
+
+
+    // 清空背包
+    res = await api('story/querystorageroom', '_cfd_t,bizCode,dwEnv,ptag,source,strZone')
+    console.log(res)
+    let bags: number[] = []
+    for (let s of res.Data.Office) {
+      console.log(s.dwCount, s.dwType)
+      bags.push(s.dwType)
+      bags.push(s.dwCount)
+    }
+    await wait(1000)
+    let strTypeCnt: string = ''
+    for (let n = 0; n < bags.length; n++) {
+      if (n % 2 === 0)
+        strTypeCnt += `${bags[n]}:`
+      else
+        strTypeCnt += `${bags[n]}|`
+    }
+    res = await api('story/sellgoods', '_cfd_t,bizCode,dwEnv,dwSceneId,ptag,source,strTypeCnt,strZone',
+      {dwSceneId: '1', strTypeCnt: strTypeCnt})
+    console.log('卖贝壳收入:', res.Data.ddwCoin, res.Data.ddwMoney)
 
     // 任务➡️
     let tasks: any
@@ -169,7 +212,10 @@ interface Params {
   dwIsFree?: number,
   ddwTaskId?: string,
   strShareId?: string,
-  strMarkList?: string
+  strMarkList?: string,
+  dwSceneId?: string,
+  strTypeCnt?: string,
+  dwUserId?: number
 }
 
 function api(fn: string, stk: string, params: Params = {}) {
@@ -238,7 +284,9 @@ function makeShareCodes() {
     res = await api('user/QueryUserInfo', '_cfd_t,bizCode,ddwTaskId,dwEnv,ptag,source,strShareId,strZone', {ddwTaskId: '', strShareId: '', strMarkList: 'undefined'})
     console.log('助力码:', res.strMyShareId)
     shareCodes.push(res.strMyShareId)
-    axios.get(`https://api.sharecode.ga/api/jxcfd/insert?code=${res.strMyShareId}&farm=${farm}`)
+    let pin: string = cookie.match(/pt_pin=([^;]*)/)![1]
+    pin = Md5.hashStr(pin)
+    axios.get(`https://api.sharecode.ga/api/jxcfd/insert?code=${res.strMyShareId}&farm=${farm}&pin=${pin}`)
       .then(res => {
         if (res.data.code === 200)
           console.log('已自动提交助力码')
