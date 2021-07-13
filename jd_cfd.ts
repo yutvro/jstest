@@ -31,7 +31,7 @@ let cookie: string = '', cookiesArr: Array<string> = [], res: any = '', shareCod
 "F0CA50D50CE659E5A672C38F39A4C8124FD9AF9EA069DD5D9359A96B6D439C9A",
 "9105AA37CA35BA769444D3F44F5F92C62CEEC37DFEE7FF0B0EFCAE7D8B73E7A6",
 ];
-let CFD_HELP_HW: string = process.env.CFD_HELP_HW ? process.env.CFD_HELP_HW : "true";
+let CFD_HELP_HW: string = process.env.CFD_HELP_HW ? process.env.CFD_HELP_HW : "false";
 console.log('帮助HelloWorld:', CFD_HELP_HW)
 let CFD_HELP_POOL: string = process.env.CFD_HELP_POOL ? process.env.CFD_HELP_POOL : "true";
 console.log('帮助助力池:', CFD_HELP_POOL)
