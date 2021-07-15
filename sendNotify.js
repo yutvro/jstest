@@ -204,11 +204,14 @@ async function sendNotify(text, desp, params = {}) {
 	let index2=des1.length;
 	let des2=desp.substr(1001,2000);
 	let des3=desp.substr(2001,3000);
+	let des4=desp.substr(3001,4000);
 		await sendNotify1(text,des1,params)
 		if(des2)
 		await sendNotify1(text,des2,params)
 		if(des3)
 		await sendNotify1(text,des3,params)
+			if(des4)
+		await sendNotify1(text,des4,params)
 }
 async function sendNotify1(text, desp, params = {}) {
   //提供6种通知
