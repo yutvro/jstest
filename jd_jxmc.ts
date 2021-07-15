@@ -14,7 +14,14 @@ const CryptoJS = require('crypto-js')
 const notify = require('./sendNotify')
 
 let appId: number = 10028, fingerprint: string | number, token: string, enCryptMethodJD: any;
-let cookie: string = '', cookiesArr: Array<string> = [], res: any = '', shareCodes: string[] = [];
+let cookie: string = '', cookiesArr: Array<string> = [], res: any = '', shareCodes: string[] = [
+"sUtgGvc0R4MLPl_PTpV4fvf_lyKVTLcIMAZu-7GEXZV1Ffe2U484vy5GrKcjlRVW",
+"sUtgGvc0R4MLPl_PTpV4fmTczu5K5S36ubVUGEvE8n32Txssnwy2oDrMJXIUUCvh",
+"sUtgGvc0R4MLPl_PTpV4fg25WpYvDp7iWfrQFLQQZtGD5Kk19Xjfk-LkqEHM_MhW",
+"sUtgGvc0R4MLPl_PTpV4fippKZ2IKvOUV9I4tiNNX9GeUuXHgMxnhU_3NSne1uUK",
+"sUtgGvc0R4MLPl_PTpV4fk7J_QMScuDxWLwRQUsyetI",
+"sUtgGvc0R4MLPl_PTpV4fnh-9PKBceyCWQrKw2hAS3d1Ffe2U484vy5GrKcjlRVW",
+];
 let homePageInfo: any;
 let UserName: string, index: number;
 
