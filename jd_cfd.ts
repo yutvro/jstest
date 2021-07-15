@@ -20,7 +20,7 @@ const CryptoJS = require('crypto-js')
 const notify = require('./sendNotify')
 dotenv.config()
 let appId: number = 10028, fingerprint: string | number, token: string = '', enCryptMethodJD: any;
-let cookie: string = '', cookiesArr: string[] = [], res: any = '', shareCodes: string[] =  [
+let cookie: string = '', cookiesArr: string[] = [], res: any = '', shareCodes: string[] = [
 "F23226A0E168CB913AA69AAEFD2C5E678EB154AC03E9086890E68991ED6174B2",
 "078588C361509E29916CCDA9265D316D8C780FB83134C92B7266DFC4612F07CC",
 "C0028153A0BEBAFFF2CA8C8CBB71DFB17E2AC5D48F11FAC8DA3C0BCF3BD00674",
@@ -32,11 +32,42 @@ let cookie: string = '', cookiesArr: string[] = [], res: any = '', shareCodes: s
 "9105AA37CA35BA769444D3F44F5F92C62CEEC37DFEE7FF0B0EFCAE7D8B73E7A6",
 ];
 
-let HELP_HW: string = process.env.HELP_HW ? process.env.HELP_HW : "false";
+let HELP_HW: string = process.env.HELP_HW ? process.env.HELP_HW : "true";
 console.log('帮助HelloWorld:', HELP_HW)
-let HELP_POOL: string = process.env.HELP_POOL ? process.env.HELP_POOL : "false";
+let HELP_POOL: string = process.env.HELP_POOL ? process.env.HELP_POOL : "true";
 console.log('帮助助力池:', HELP_POOL)
 
+interface Params {
+  strBuildIndex?: string,
+  ddwCostCoin?: number,
+  taskId?: number,
+  dwType?: string,
+  configExtra?: string,
+  strStoryId?: string,
+  triggerType?: number,
+  ddwTriggerDay?: number,
+  ddwConsumeCoin?: number,
+  dwIsFree?: number,
+  ddwTaskId?: string,
+  strShareId?: string,
+  strMarkList?: string,
+  dwSceneId?: string,
+  strTypeCnt?: string,
+  dwUserId?: number,
+  ddwCoin?: number,
+  ddwMoney?: number,
+  dwPrizeLv?: number,
+  dwPrizeType?: number,
+  strPrizePool?: string,
+  dwFirst?: number,
+  dwIdentityType?: number,
+  strBussKey?: string,
+  strMyShareId?: string,
+  ddwCount?: number,
+  __t?: number,
+  strBT?: string,
+  dwCurStageEndCnt?: number
+}
 
 let UserName: string, index: number;
 !(async () => {
@@ -57,6 +88,36 @@ let UserName: string, index: number;
       await makeShareCodes();
     } catch (e) {
       console.log(e)
+    }
+
+    // 珍珠
+    res = await api('user/ComposeGameState', '', {dwFirst: 1})
+    let strDT: string = res.strDT, strMyShareId: string = res.strMyShareId
+    console.log(`已合成${res.dwCurProgress}个珍珠`)
+    for (let i = 0; i < 8 - res.dwCurProgress; i++) {
+      console.log('继续合成')
+      let RealTmReport: number = getRandomNumberByRange(10, 20)
+      console.log('本次合成需要上报：', RealTmReport)
+      for (let j = 0; j < RealTmReport; j++) {
+        res = await api('user/RealTmReport', '',
+          {dwIdentityType: 0, strBussKey: 'composegame', strMyShareId: strMyShareId, ddwCount: 5})
+        if (res.iRet === 0)
+          console.log(`游戏中途上报${j + 1}：OK`)
+        await wait(5000)
+      }
+      res = await api('user/ComposeGameAddProcess', '__t,strBT,strZone', {__t: Date.now(), strBT: strDT})
+      console.log('游戏完成，已合成', res.dwCurProgress)
+      console.log('游戏完成，等待3s')
+      await wait(3000)
+    }
+    // 珍珠领奖
+    res = await api('user/ComposeGameState', '', {dwFirst: 1})
+    for (let stage of res.stagelist) {
+      if (res.dwCurProgress >= stage.dwCurStageEndCnt && stage.dwIsAward === 0) {
+        let awardRes: any = await api('user/ComposeGameAward', '__t,dwCurStageEndCnt,strZone', {__t: Date.now(), dwCurStageEndCnt: stage.dwCurStageEndCnt})
+        console.log('珍珠领奖：', awardRes.ddwCoin)
+        await wait(3000)
+      }
     }
 
     // 签到 助力奖励
@@ -130,7 +191,7 @@ let UserName: string, index: number;
     // 垃圾🚮
     res = await api('story/QueryRubbishInfo', '_cfd_t,bizCode,dwEnv,ptag,source,strZone')
     if (res.Data.StoryInfo.StoryList.length !== 0) {
-      await api('story/RubbishOper','')
+      await api('story/RubbishOper', '')
     }
 
     // 任务➡️
@@ -240,30 +301,6 @@ let UserName: string, index: number;
     }
   }
 })()
-
-interface Params {
-  strBuildIndex?: string,
-  ddwCostCoin?: number,
-  taskId?: number,
-  dwType?: string,
-  configExtra?: string,
-  strStoryId?: string,
-  triggerType?: number,
-  ddwTriggerDay?: number,
-  ddwConsumeCoin?: number,
-  dwIsFree?: number,
-  ddwTaskId?: string,
-  strShareId?: string,
-  strMarkList?: string,
-  dwSceneId?: string,
-  strTypeCnt?: string,
-  dwUserId?: number,
-  ddwCoin?: number,
-  ddwMoney?: number,
-  dwPrizeLv?: number,
-  dwPrizeType?: number,
-  strPrizePool?: string
-}
 
 function api(fn: string, stk: string, params: Params = {}) {
   return new Promise(async resolve => {
@@ -436,4 +473,8 @@ function wait(t: number) {
       resolve()
     }, t)
   })
+}
+
+function getRandomNumberByRange(start: number, end: number): number {
+  return Math.floor(Math.random() * (end - start) + start)
 }
