@@ -193,6 +193,9 @@ var  substr=function(str, start, n) {
     }
     return tmpStr;
   }
+  function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 async function sendNotify(text, desp, params = {}) {
 	/*let des=desp.split("账号5");
 	//for(var i=0;i<des.length;i++){
@@ -214,6 +217,7 @@ async function sendNotify(text, desp, params = {}) {
 		await sendNotify1(text,des4,params)
 }
 async function sendNotify1(text, desp, params = {}) {
+  await sleep(1000);
   //提供6种通知
   desp += ``;
   await Promise.all([
