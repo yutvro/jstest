@@ -26,9 +26,9 @@ let cookie: string = '', res: any = '', shareCodes: string[] = [
 let homePageInfo: any;
 let UserName: string, index: number;
 
-let HELP_HW: string = process.env.HELP_HW ? process.env.HELP_HW : "true";
+let HELP_HW: string = process.env.HELP_HW ? process.env.HELP_HW : "false";
 console.log('帮助HelloWorld:', HELP_HW)
-let HELP_POOL: string = process.env.HELP_POOL ? process.env.HELP_POOL : "true";
+let HELP_POOL: string = process.env.HELP_POOL ? process.env.HELP_POOL : "false";
 console.log('帮助助力池:', HELP_POOL)
 
 !(async () => {
