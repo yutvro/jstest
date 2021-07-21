@@ -15,20 +15,13 @@ const notify = require('./sendNotify')
 const A = require('./jd_jxmcToken')
 
 let appId: number = 10028, fingerprint: string | number, token: string, enCryptMethodJD: any;
-let cookie: string = '', res: any = '', shareCodes: string[] = [
-"sUtgGvc0R4MLPl_PTpV4fvf_lyKVTLcIMAZu-7GEXZV1Ffe2U484vy5GrKcjlRVW",
-"sUtgGvc0R4MLPl_PTpV4fmTczu5K5S36ubVUGEvE8n32Txssnwy2oDrMJXIUUCvh",
-"sUtgGvc0R4MLPl_PTpV4fg25WpYvDp7iWfrQFLQQZtGD5Kk19Xjfk-LkqEHM_MhW",
-"sUtgGvc0R4MLPl_PTpV4fippKZ2IKvOUV9I4tiNNX9GeUuXHgMxnhU_3NSne1uUK",
-"sUtgGvc0R4MLPl_PTpV4fk7J_QMScuDxWLwRQUsyetI",
-"sUtgGvc0R4MLPl_PTpV4fnh-9PKBceyCWQrKw2hAS3d1Ffe2U484vy5GrKcjlRVW",
-];
+let cookie: string = '', res: any = '', shareCodes: string[] = [];
 let homePageInfo: any;
 let UserName: string, index: number;
 
-let HELP_HW: string = process.env.HELP_HW ? process.env.HELP_HW : "false";
+let HELP_HW: string = process.env.HELP_HW ? process.env.HELP_HW : "true";
 console.log('帮助HelloWorld:', HELP_HW)
-let HELP_POOL: string = process.env.HELP_POOL ? process.env.HELP_POOL : "false";
+let HELP_POOL: string = process.env.HELP_POOL ? process.env.HELP_POOL : "true";
 console.log('帮助助力池:', HELP_POOL)
 
 !(async () => {
@@ -47,7 +40,12 @@ console.log('帮助助力池:', HELP_POOL)
     console.log(`\n开始【京东账号${index}】${nickName || UserName}\n`);
 
     homePageInfo = await api('queryservice/GetHomePageInfo', 'channel,isgift,sceneid', {isgift: 0})
-    let lastgettime: number = homePageInfo.data.cow.lastgettime
+    let lastgettime: number
+    if (homePageInfo.data?.cow?.lastgettime) {
+      lastgettime = homePageInfo.data.cow.lastgettime
+    } else {
+      continue
+    }
 
     let food: number = 0
     try {
@@ -181,7 +179,7 @@ console.log('帮助助力池:', HELP_POOL)
    */
   if (HELP_POOL === 'true') {
     try {
-      let {data} = await axios.get('https://api.sharecode.ga/api/jxmc/6')
+      let {data} = await axios.get('https://api.sharecode.ga/api/jxmc/6', {timeout: 10000})
       console.log('获取到20个随机助力码:', data.data)
       shareCodes = [...shareCodes, ...data.data]
     } catch (e) {
@@ -313,7 +311,7 @@ function makeShareCodes(code: string) {
     let farm: string = await getFarmShareCode(cookie)
     let pin: string = cookie.match(/pt_pin=([^;]*)/)![1]
     pin = Md5.hashStr(pin)
-    await axios.get(`https://api.sharecode.ga/api/autoInsert?db=jxmc&code=${code}&bean=${bean}&farm=${farm}&pin=${pin}`)
+    await axios.get(`https://api.sharecode.ga/api/autoInsert?db=jxmc&code=${code}&bean=${bean}&farm=${farm}&pin=${pin}`, {timeout: 10000})
       .then(res => {
         if (res.data.code === 200)
           console.log('已自动提交助力码')
