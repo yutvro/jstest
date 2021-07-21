@@ -17,17 +17,7 @@ function randomString(e) {
     n += t.charAt(Math.floor(Math.random() * a));
   return n
 }
-$.InviteList =  [
-"F23226A0E168CB913AA69AAEFD2C5E678EB154AC03E9086890E68991ED6174B2",
-"078588C361509E29916CCDA9265D316D8C780FB83134C92B7266DFC4612F07CC",
-"C0028153A0BEBAFFF2CA8C8CBB71DFB17E2AC5D48F11FAC8DA3C0BCF3BD00674",
-"17F7E5B37B1EA804939C2C8BE3F35E1085C690FCBCF24A959F66355E2E64A87F",
-"E2618D1A71364A3E172E38194329EB3C47B22242D29B302092E24C8652E7DED5",
-"E2618D1A71364A3E172E38194329EB3C5C055E51ADBE8B77C80D890E92987B69",
-"F0CA50D50CE659E5A672C38F39A4C8124FD9AF9EA069DD5D9359A96B6D439C9A",
-"F0CA50D50CE659E5A672C38F39A4C8124FD9AF9EA069DD5D9359A96B6D439C9A",
-"9105AA37CA35BA769444D3F44F5F92C62CEEC37DFEE7FF0B0EFCAE7D8B73E7A6",
-];
+$.InviteList = []
 $.innerInviteList = [];
 const HelpAuthorFlag = false;//是否助力作者SH  true 助力，false 不助力
 
@@ -215,10 +205,15 @@ async function StoryInfo(){
         if(TypeCnt){
           console.log(`出售`)
           await $.wait(1000)
-          additional = `&ptag=&strTypeCnt=${TypeCnt}&dwSceneId=1`
+          additional = `&ptag=&strTypeCnt=${TypeCnt}&dwSceneId=2`
           stk = `_cfd_t,bizCode,dwEnv,dwSceneId,ptag,source,strTypeCnt,strZone`
           res = await taskGet(`story/sellgoods`, stk, additional)
           await printRes(res, '贩卖')
+          additional = `&ptag=&strStoryId=${$.HomeInfo.StoryInfo.StoryList[0].strStoryId}&dwType=4&ddwTriggerDay=${$.HomeInfo.StoryInfo.StoryList[0].ddwTriggerDay}`
+          stk = `_cfd_t,bizCode,ddwTriggerDay,dwEnv,dwType,ptag,source,strStoryId,strZone`
+          type = `CollectorOper`
+          res = await taskGet(`story/${type}`, stk, additional)
+          // console.log(JSON.stringify(res))
         }
       }else if($.HomeInfo.StoryInfo.StoryList[0].dwType == 1 && ( (res && res.iRet == 0) || res == '')){
         if(res && res.iRet == 0 && res.Data && res.Data.Serve && res.Data.Serve.dwWaitTime){
@@ -358,7 +353,7 @@ async function sign(){
     }
     
     if($.Aggrtask && $.Aggrtask.Data && $.Aggrtask.Data.Employee && $.Aggrtask.Data.Employee.EmployeeList){
-        if($.Aggrtask.Data && $.Aggrtask.Data.Employee && !$.Aggrtask.Data.Employee.EmployeeList){
+        if($.Aggrtask.Data && $.Aggrtask.Data.Employee && $.Aggrtask.Data.Employee.EmployeeList){
         console.log(`\n领取邀请奖励`)
         for(let i of $.Aggrtask.Data.Employee.EmployeeList){
           if(i.dwStatus == 0){
@@ -419,15 +414,17 @@ async function RubbishOper(){
         if(i.strStoryId == 3){
           console.log(`\n倒垃圾`)
           $.RubbishOper = await taskGet(`story/RubbishOper`, '_cfd_t,bizCode,dwEnv,dwRewardType,dwType,ptag,source,strZone', '&ptag=&dwType=1&dwRewardType=0')
-          for(let j of $.RubbishOper.Data.ThrowRubbish.Game.RubbishList){
-            console.log(`放置[${j.strName}]等待任务完成`)
-            res = await taskGet(`story/RubbishOper`, '_cfd_t,bizCode,dwEnv,dwRewardType,dwRubbishId,dwType,ptag,source,strZone', `&ptag=&dwType=2&dwRewardType=0&dwRubbishId=${j.dwId}`)
-            await $.wait(2000)
-          }
-          if(res.Data && res.Data.RubbishGame && res.Data.RubbishGame.AllRubbish && res.Data.RubbishGame.AllRubbish.dwIsGameOver && res.Data.RubbishGame.AllRubbish.dwIsGameOver == 1){
-            console.log(`任务完成获得:${res.Data.RubbishGame.AllRubbish.ddwCoin && res.Data.RubbishGame.AllRubbish.ddwCoin+'金币' || ''}`)
-          }else{
-            console.log(JSON.stringify(res))
+          if($.RubbishOper && $.RubbishOper.Data && $.RubbishOper.Data.ThrowRubbish && $.RubbishOper.Data.ThrowRubbish.Game && $.RubbishOper.Data.ThrowRubbish.Game.RubbishList){
+            for(let j of $.RubbishOper.Data.ThrowRubbish.Game.RubbishList){
+              console.log(`放置[${j.strName}]等待任务完成`)
+              res = await taskGet(`story/RubbishOper`, '_cfd_t,bizCode,dwEnv,dwRewardType,dwRubbishId,dwType,ptag,source,strZone', `&ptag=&dwType=2&dwRewardType=0&dwRubbishId=${j.dwId}`)
+              await $.wait(2000)
+            }
+            if(res && res.Data && res.Data.RubbishGame && res.Data.RubbishGame.AllRubbish && res.Data.RubbishGame.AllRubbish.dwIsGameOver && res.Data.RubbishGame.AllRubbish.dwIsGameOver == 1){
+              console.log(`任务完成获得:${res.Data.RubbishGame.AllRubbish.ddwCoin && res.Data.RubbishGame.AllRubbish.ddwCoin+'金币' || ''}`)
+            }else{
+              console.log(JSON.stringify(res))
+            }
           }
         }
       }
@@ -608,7 +605,6 @@ async function UserTask(){
         console.log(`任务 ${item.taskName} (${item.completedTimes}/${item.targetTimes})`)
         if (item.awardStatus == 2 && item.completedTimes === item.targetTimes) {
           res = await taskGet(`Award`, '_cfd_t,bizCode,dwEnv,ptag,source,strZone,taskId', `&ptag=&taskId=${item.taskId}`)
-          console.log(JSON.stringify(res))
           if(res.ret == 0){
             if(res.data.prizeInfo){
               res.data.prizeInfo = $.toObj(res.data.prizeInfo)
@@ -666,8 +662,8 @@ function printRes(res, msg=''){
     if(res.Data){
       result = res.Data
     }
-    if(result.ddwCoin || result.ddwMoney || result.strPrizeName){
-      console.log(`${msg}获得:${result.ddwCoin && ' '+result.ddwCoin+'金币' || ''}${result.ddwMoney && ' '+result.ddwMoney+'财富' || ''}${result.strPrizeName && ' '+result.strPrizeName+'红包' || ''}`)
+    if(result.ddwCoin || result.ddwMoney || result.strPrizeName || result.StagePrizeInfo && result.StagePrizeInfo.strPrizeName){
+      console.log(`${msg}获得:${result.ddwCoin && ' '+result.ddwCoin+'金币' || ''}${result.ddwMoney && ' '+result.ddwMoney+'财富' || ''}${result.strPrizeName && ' '+result.strPrizeName+'红包' || ''}${result.StagePrizeInfo && result.StagePrizeInfo.strPrizeName && ' '+result.StagePrizeInfo.strPrizeName || ''}`)
     }else if(result.Prize){
       console.log(`${msg}获得: ${result.Prize.strPrizeName && '优惠券 '+result.Prize.strPrizeName || ''}`)
     }else if(res && res.sErrMsg){
