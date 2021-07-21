@@ -51,12 +51,17 @@ JD_DEBUG = cfg.get('debug', True)
 PROCESS_NUM = cfg.get('process_num', 4)
 
 # JD COOKIES
-
-JD_COOKIES = []
+cookies = []
 def env(key):
     return os.environ.get(key)
 if env("JD_COOKIE"):
-    JD_COOKIES.extend(env("JD_COOKIE").split('&'))
+    cookies.extend(env("JD_COOKIE").split('&'))
+
+JD_COOKIES = [j for j in [{'pt_pin': re.search('pt_pin=(.*?);', i).group(1),
+                           'pt_key': re.search('pt_key=(.*?);', i).group(1)}
+              for i in cookies if re.search('pt_pin=(.*?);pt_key=(.*?);', i)
+              or re.search('pt_key=(.*?);pt_pin=(.*?);', i)] if j['pt_pin'] != '']
+
 # 默认请求头
 DEFAULT_USER_AGENT = 'jdapp;iPhone;12.0.1;15.1.1;network/wifi;Mozilla/5.0 (iPhone; CPU iPhone OS 15_1_1 like Mac OS ' \
                      'X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1'
