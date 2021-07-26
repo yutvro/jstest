@@ -57,7 +57,7 @@ let ll=["HcmphO2sQQunfIecEdM7ubdtYkzEiZ2UcZSlgKKR4ar7nP28jpdig0T1Hz74qEnyE_Fw6Da
 "HcmphLbwLg2idtGbF9Q70rAA5zUwefyQIZeyij1k2G6JD32nfsGkOPKbL8Oy3fLskCvM_5IikzzmNjz_gIL0Nw",]
 for(var i=0;i<ll.length;i++){
 	let aa={"max":false,"ues":"","inviteId":ll[i]}
-	$.inviteList.push(aa);
+	//$.inviteList.push(aa);
 }
 $.innerShInviteList = [];
 if ($.isNode()) {
