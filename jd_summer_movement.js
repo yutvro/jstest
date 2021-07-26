@@ -46,6 +46,8 @@ const ShHelpAuthorFlag = false;//是否助力作者SH  true 助力，false 不�
 let cookiesArr = [];
 $.cookie = '';
 $.inviteList = [];
+$.secretpInfo = {};
+$.ShInviteList = [];
 let ll=["HcmphO2sQQunfIecEdM7ubdtYkzEiZ2UcZSlgKKR4ar7nP28jpdig0T1Hz74qEnyE_Fw6DaNrwxD",
 "HcmphLbwLlXYA9D4fYp2pJ-oVEQUdKZH-8l7x-j2NlWnWtaaX6o530hdUPfhl9cFy7oyf6cuZJeDNm1h1A","HcmphO2sSAumfIqTF9U2uTW0rufxeTOY43hY_0-GvNFe-Xqwq2HVwMRt3rfhI7fpV7a5n0JmD_qy",
 "HcmphLbwLg6iLYSfFYI71hdq5HmRvDtM2S1EfCzlcAUyDlAw67i76iBJBRLJf3XsbeZKgv2Q79QRjBK4UktF2w",
@@ -57,8 +59,6 @@ for(var i=0;i<ll.length;i++){
 	let aa={"max":false,"ues":"","inviteId":ll[i]}
 	$.inviteList.push(aa);
 }
-$.secretpInfo = {};
-$.ShInviteList = [];
 $.innerShInviteList = [];
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -82,10 +82,10 @@ getUA()
     return;
   }
   console.log('活动入口：京东APP-》 首页-》 右边小窗口（点我赢千元）\n' +
-    '邀请好友助力：内部账号自行互助(排名靠前账号得到的机会多)2\n' +
+    '邀请好友助力：内部账号自行互助(排名靠前账号得到的机会多)\n' +
     'SH互助：内部账号自行互助(排名靠前账号得到的机会多),多余的助力次数会默认助力作者内置助力码\n' +
     '活动时间：2021-07-08至2021-08-08\n' +
-    '脚本更新时间：2021年7月25日 22点00分\n'
+    '脚本更新时间：2021年7月25日 23点00分\n'
   );
   if (`${summer_movement_joinjoinjoinhui}` === "true") console.log('您设置了入会\n')
   if (`${summer_movement_HelpHelpHelpFlag}` === "true") console.log('您设置了只执行邀请助力\n')
@@ -130,14 +130,29 @@ getUA()
   }
   // 助力
   for (let i = 0; i < cookiesArr.length; i++) {
-    $.cookie = cookiesArr[i];
-    $.canHelp = true;
-    $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
     if (!$.secretpInfo[$.UserName]) {
       continue;
     }
-    // $.secretp = $.secretpInfo[$.UserName];
     $.index = i + 1;
+    let out = false
+    for(let c of outuserIdArr){
+        if(c == $.index) {
+            out = true
+            break
+        }
+    }
+    if(out) continue
+    $.canHelp = true;
+    $.hotFlag = false;
+    $.index = i + 1;
+    $.cookie = cookiesArr[i] + "pwdt_id:" + encodeURIComponent($.UserName) + ";";
+    $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
+    $.cookie = $.cookie + "pwdt_id:" + encodeURIComponent($.UserName) + ";";
+    $.nickName = $.UserName;
+    $.joyytoken = ''
+    joyytoken_count = 1
+    getUA()
+    // $.secretp = $.secretpInfo[$.UserName];
     if ($.inviteList && $.inviteList.length) console.log(`\n******开始内部京东账号【邀请好友助力】*********\n`);
     for (let j = 0; j < $.inviteList.length && $.canHelp && !$.hotFlag; j++) {
       $.oneInviteInfo = $.inviteList[j];
@@ -231,8 +246,8 @@ async function movement() {
     }
     
     if(!$.hotFlag) await takePostRequest('olympicgames_getTaskDetail');
-    console.log(`\n做任务\n`);
     if(`${summer_movement_HelpHelpHelpFlag}` === "true") return
+    console.log(`\n做任务\n`);
     await $.wait(1000);
     //做任务
     for (let i = 0; i < $.taskList.length && !$.hotFlag; i++) {
