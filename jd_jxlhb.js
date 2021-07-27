@@ -53,7 +53,13 @@ const BASE_URL = 'https://wq.jd.com/cubeactive/steprewardv3'
     //res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/jxhb.json')
   }
   if (res && res.activeId) $.activeId = res.activeId;
-  $.authorMyShareIds = [...((res && res.codes) || [])];
+  $.authorMyShareIds = ['sA0J0amfPeyFqzbgvE-y2vf_lyKVTLcIMAZu-7GEXZV1Ffe2U484vy5GrKcjlRVW',
+  'sA0J0amfPeyFqzbgvE-y2mTczu5K5S36ubVUGEvE8n32Txssnwy2oDrMJXIUUCvh',
+	  'sA0J0amfPeyFqzbgvE-y2g25WpYvDp7iWfrQFLQQZtGD5Kk19Xjfk-LkqEHM_MhW',
+	  'sA0J0amfPeyFqzbgvE-y2ippKZ2IKvOUV9I4tiNNX9GeUuXHgMxnhU_3NSne1uUK',
+	  'sA0J0amfPeyFqzbgvE-y2k7J_QMScuDxWLwRQUsyetI',
+	  'sA0J0amfPeyFqzbgvE-y2nh-9PKBceyCWQrKw2hAS3d1Ffe2U484vy5GrKcjlRVW'
+	  ];
   //开启红包,获取互助码
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
