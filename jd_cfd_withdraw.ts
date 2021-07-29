@@ -6,9 +6,9 @@
  */
 import {Worker, isMainThread, workerData} from 'worker_threads';
 import {requireConfig, wait} from "./TS_USER_AGENTS";
-import {Md5} from "_ts-md5@1.2.9@ts-md5";
-import axios from "_axios@0.21.1@axios";
-import USER_AGENT from "../TS_USER_AGENTS";
+import {Md5} from "ts-md5";
+import axios from "axios";
+import USER_AGENT from "./TS_USER_AGENTS";
 import {format} from 'date-fns';
 import * as dotenv from 'dotenv';
 
