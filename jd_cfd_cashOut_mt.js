@@ -37,10 +37,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var worker_threads_1 = require("worker_threads");
-var TS_USER_AGENTS_1 = require("./TS_USER_AGENTS");
+var TS_USER_AGENTS_1 = require("./JS_USER_AGENTS");
 var _ts_md5_1_2_9_ts_md5_1 = require("ts-md5");
 var _axios_0_21_1_axios_1 = require("axios");
-var TS_USER_AGENTS_2 = require("./TS_USER_AGENTS");
+var TS_USER_AGENTS_2 = require("./JS_USER_AGENTS");
 var date_fns_1 = require("date-fns");
 var dotenv = require("dotenv");
 var CryptoJS = require('crypto-js');
