@@ -5,10 +5,10 @@
  * export CFD_CASHOUT_MONEY=1  // 自定义1元
  */
 import {Worker, isMainThread, workerData} from 'worker_threads';
-import {requireConfig, wait} from "./TS_USER_AGENTS.ts";
+import {requireConfig, wait} from "./TS_USER_AGENTS";
 import {Md5} from "ts-md5";
 import axios from "axios";
-import USER_AGENT from "./TS_USER_AGENTS.ts";
+import USER_AGENT from "./TS_USER_AGENTS";
 import {format} from 'date-fns';
 import * as dotenv from 'dotenv';
 
