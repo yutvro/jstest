@@ -146,7 +146,7 @@ async function sign() {
 function reward_query() {
   return new Promise(resolve => {
     $.get(taskGetUrl("spring_reward_query", {
-      "inviter": ["Z0qecRq3mNfmoDe_qwpUHg", "KP3aFX8LlEEi2diuiFQtmJBAtkibXfaQvwbtdUNQ0wQ"][Math.floor((Math.random() * 3))],
+      "inviter": ["Z0qecRq3mNfmoDe_qwpUHg", "KP3aFX8LlEEi2diuiFQtmJBAtkibXfaQvwbtdUNQ0wQ"][Math.floor((Math.random() * 2))],
       linkId
     }), async (err, resp, data) => {
       try {
