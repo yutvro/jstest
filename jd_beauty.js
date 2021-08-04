@@ -483,7 +483,7 @@ async function mr() {
                 for (let i = benefit.day_exchange_count; i < 10; i++){
                   // console.log(`开始兑换`)
                   client.send(`{"msg":{"type":"action","args":{"benefit_id":${benefit.id}},"action":"to_exchange"}}`);
-                  await $.wait(1000);
+                  await $.wait(10000);
                 }
               }
               // console.log(`物品【${benefit.description}】需要${benefit.coins}美妆币，库存${benefit.stock}份`)
@@ -499,7 +499,7 @@ async function mr() {
           break
         case "to_exchange":
           if (vo?.data) {
-            console.log(`兑换${vo?.data?.coins/-100}京豆成功;${JSON.stringify(vo)}`)
+            console.log(`兑换${vo?.data?.coins/-1000}京豆成功;${JSON.stringify(vo)}`)
           } else {
             console.log(`兑换京豆失败：${JSON.stringify(vo)}`)
           }
