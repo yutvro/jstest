@@ -77,7 +77,7 @@ async function jsRedPacket() {
   try {
     await invite();
     await sign();//极速版签到提现
-    //await reward_query();
+    await reward_query();
     for (let i = 0; i < 3; ++i) {
       await redPacket();//开红包
       await $.wait(2000)
@@ -146,7 +146,7 @@ async function sign() {
 function reward_query() {
   return new Promise(resolve => {
     $.get(taskGetUrl("spring_reward_query", {
-      "inviter": ["7eKzr10NLcmTYeaeyUebLw", "zicY3HSd2gfmfYAc3DZ1OQ","nJ0poKQnWevLvWXw7mM1zA-R24gcXp-ju6zeMFi-r6A"][Math.floor((Math.random() * 3))],
+      "inviter": ["Z0qecRq3mNfmoDe_qwpUHg", "KP3aFX8LlEEi2diuiFQtmJBAtkibXfaQvwbtdUNQ0wQ"][Math.floor((Math.random() * 3))],
       linkId
     }), async (err, resp, data) => {
       try {
