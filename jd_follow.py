@@ -1,16 +1,19 @@
 #!/bin/env python3
 # -*- coding: utf-8 -*
 '''
-项目名称: JD-Script / jd_getFollowGift 
+项目名称: JD-Script / jd_follow
 Author: Curtin
-功能：
-Date: 2021/6/6 上午7:57
-cron: 10 0,7 * * *
-建议cron: 0 9 * * *  python3 jd_getFollowGift.py
+功能: 关注有礼
+Date: 2021/4/17 上午11:22
+update: 2021/7/24 18:30
+TG交流 https://t.me/topstyle996
+TG频道 https://t.me/TopStyle2021
+建议cron: 59 23 * * *  python3 jd_follow.py
 new Env('关注有礼');
 '''
-##################################
-#cookie填写，注意：#ck 优先读取【JDCookies.txt】 文件内的ck  再到 ENV的 变量 JD_COOKIE='ck1&ck2' 最后才到脚本内 cookies=ck
+################【参数】######################
+# ck 优先读取【JDCookies.txt】 文件内的ck  再到 ENV的 变量 JD_COOKIE='ck1&ck2' 最后才到脚本内 cookies=ck
+#ENV设置：export JD_COOKIE='cookie1&cookie2'
 cookies = ''
 #TG 推送
 # tg机器人token
