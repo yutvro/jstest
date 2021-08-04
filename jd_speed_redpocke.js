@@ -156,6 +156,7 @@ function reward_query() {
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
+			console.log(data)
             if (data.code === 0) {
 
             } else {
