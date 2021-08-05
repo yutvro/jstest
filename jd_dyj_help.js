@@ -10,7 +10,7 @@ let pins = process.env.dyjHelpPins ?? ""
 let cookie = ''
 let helps = [{
     id: 0,
-    redEnvelopeId: 'f832d7170a89429198dd3c13effaf99a63511628132879010',
+    redEnvelopeId: 'ef00773be4044e67b25fd4dec47b5e5e43081628179826381',
     markedPin: 'Z0qecRq3mNfmoDe_qwpUHg'
   }]
 let tools = []
