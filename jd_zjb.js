@@ -19,8 +19,6 @@ let cookiesArr = [], cookie = '', message;
 let InviterPinarr = ['ghNQyGlIWbUdlPK/1zsTFQ==','jl555FG2wDz4KjwztQvjww==','U6lCo5WEZMTUabR8RPhsmU5yrUVGTyQoPdAatEc+880=','X0t80OyY6c/49K0DgQRRfA==','FrDZBDwlRNX/Fet29mBTjg==','E9cx6cIwwOksEkmNi4Mv6Q==','zYkK+rXPdZyUkAr4r2zq0WSvXoZgipsRqCxDe1rbNgk=','gRs2wVhC4FaVpu2YIyvVDIh8Hlnsn1v2C06gp1gRZSk=','mmtBJaF7DKbFqSRZ34Az/Q==',
 ]; //
 let InviterPin;
-let inviterId = ['ghNQyGlIWbUdlPK/1zsTFQ==','jl555FG2wDz4KjwztQvjww=='
-][Math.floor((Math.random() * 21))]
 
 
 // if (process.env.InviterPin) {
