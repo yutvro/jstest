@@ -6,7 +6,7 @@
 const $ = new Env("发财大赢家助力")
 const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random()*4+10)}.${Math.ceil(Math.random()*4)};${randomString(40)}`
 let cookiesArr = []
-let pins = process.env.dyjHelpPins ?? "18014246678_p"
+let pins = process.env.dyjHelpPins ?? ""
 let cookie = ''
 let helps = [{
     id: 0,
@@ -38,10 +38,10 @@ let tools = []
                amount = data?.data?.amount
                helps.push({id: i, redEnvelopeId: redEnvelopeId, markedPin: markedPin})
           }
-			    console.log(helps)
+			   
           tools.push({id: i, cookie: cookie})  
     }
-		 
+		  console.log(helps)
     while (helps.length && tools.length) {
           tool = tools.pop()
           cookie = tool.cookie
