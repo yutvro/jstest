@@ -6,9 +6,13 @@
 const $ = new Env("发财大赢家助力")
 const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random()*4+10)}.${Math.ceil(Math.random()*4)};${randomString(40)}`
 let cookiesArr = []
-let pins = process.env.dyjHelpPins ?? ""
+let pins = process.env.dyjHelpPins ?? "18014246678_p"
 let cookie = ''
-let helps = []
+let helps = [{
+    id: 0,
+    redEnvelopeId: 'f832d7170a89429198dd3c13effaf99a63511628132879010',
+    markedPin: 'Z0qecRq3mNfmoDe_qwpUHg'
+  }]
 let tools = []
 
 !(async () => {
@@ -34,8 +38,10 @@ let tools = []
                amount = data?.data?.amount
                helps.push({id: i, redEnvelopeId: redEnvelopeId, markedPin: markedPin})
           }
+			    console.log(helps)
           tools.push({id: i, cookie: cookie})  
     }
+		 
     while (helps.length && tools.length) {
           tool = tools.pop()
           cookie = tool.cookie
