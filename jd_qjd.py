@@ -10,11 +10,7 @@ Date: 2021/7/3 上午10:02
 TG交流 https://t.me/topstyle996
 TG频道 https://t.me/TopStyle2021
 update: 2021.7.24 14:21
-<<<<<<< HEAD
 建议cron: 0 0 * 8 *  python3 jd_qjd.py
-=======
-建议cron: 0 0 6-16 8 *  python3 jd_qjd.py
->>>>>>> 1da2ffe2870f80b057abef6f12a3816d0c722f01
 new Env('全民抢京豆 8.6-8.16');
 * 修复了助力活动不存在、增加了随机UA（如果未定义ua则启用随机UA）
 * 新增推送
@@ -84,7 +80,7 @@ class msg(object):
         if a == 0:
             a += 1
         try:
-            url = 'https://gitee.com/curtinlv/Public/raw/master/sendNotify.py'
+            url = 'https://raw.githubusercontent.com/acoolbook/lxkwz/main/sendNotify.py'
             response = requests.get(url)
             if 'curtinlv' in response.text:
                 with open('sendNotify.py', "w+", encoding="utf-8") as f:
