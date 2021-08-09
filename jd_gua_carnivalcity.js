@@ -103,11 +103,11 @@ let nowTime = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*
       }
       if ($.canHelp) {
         console.log(`\n\n如果有剩余助力机会，则给作者以及随机码助力`)
-        await doHelp();
+        //await doHelp();
       }
     }
   }
-  // console.log(JSON.stringify($.temp))
+   console.log($.temp.join('@'))
   if (allMessage) {
     //NODE端,默认每月一日运行进行推送通知一次
     if ($.isNode()) {
