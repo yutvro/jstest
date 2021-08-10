@@ -65,7 +65,7 @@ let nowTime = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*
     if ($.isNode()) await notify.sendNotify($.name + '活动已结束', `请删除此脚本\n咱江湖再见`);
     return
   }
-  await updateShareCodesCDN();
+  //await updateShareCodesCDN();
   // await requireConfig();
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
@@ -97,12 +97,7 @@ let nowTime = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*
         console.log(`\n先自己账号内部相互邀请助力\n`);
         for (let item of $.temp) {
           console.log(`\n${$.UserName} 去参助力 ${item}`);
-         /* const helpRes = await toHelp(item.trim());
-          if (helpRes.data.status === 5) {
-            console.log(`助力机会已耗尽，跳出助力`);
-            $.canHelp = false;
-            break;
-          }*/
+         
         }
       }
       if ($.canHelp) {
@@ -111,7 +106,7 @@ let nowTime = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*
       }
     }
   }
-   console.log($.temp.join('@'))
+  // console.log(JSON.stringify($.temp))
   if (allMessage) {
     //NODE端,默认每月一日运行进行推送通知一次
     if ($.isNode()) {
@@ -523,7 +518,7 @@ function myRank() {
 //领取往期奖励API
 function saveJbean(date) {
   return new Promise(resolve => {
-    const body = "date=" + date;
+    const body = {"date":`${date}`};
     const options = taskPostUrl('/khc/rank/getRankJingBean', body)
     $.post(options, (err, resp, data) => {
       try {
