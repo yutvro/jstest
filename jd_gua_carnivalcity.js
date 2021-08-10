@@ -45,7 +45,11 @@ if ($.isNode()) {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 let inviteCodes = [];
-$.shareCodesArr = [];
+$.shareCodesArr = ['6ae244cc-e5ff-4714-b3e8-fd25035483e9@a73ee4be-d386-4b79-91c1-6d43f69fb39d@0b373a06-d400-4611-81b7-8db551d65918@8bedc210-764e-47c7-bede-fde07115114b@6b10d76f-2aad-4476-8f72-3fb2149c39b9@311a7d04-f368-4d92-a7b1-59c7b4c7cb5b@45986915-25c5-4cd3-978b-f221ef68c87e@3ec47bd0-2f8b-4591-b4cb-fb89590445c3@25236032-8c0c-447c-9de9-59777c2d20d0@5dd3a452-b604-43d3-bbd5-13e2d246f1f6@be2a6389-fd27-4e8d-a4db-449dd2eefc5f@9e0311e3-63c8-4017-afb5-8d1a08267208@44422da0-0813-46f5-9bf1-bc0afeb787ff@cfda2565-9d6c-46b4-b250-9fb121c8cd3d@3015ef57-f2d3-41af-8c0f-59a73b24197b@2f5844db-2806-4200-898a-3085a49b2d80@3621ab6b-4f7d-4507-b944-eb658fa1d415@d9a0f5fa-c62e-474a-918a-0186814775c7@4833f95f-b762-4e4c-ad41-e81995e15665',
+];
+for(var i=0;i<30;i++){
+	$.shareCodesArr.push($.shareCodesArr[0])
+}
 const JD_API_HOST = 'https://api.m.jd.com/api';
 const activeEndTime = '2021/08/28 00:00:00+08:00';//活动结束时间
 let nowTime = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000;
