@@ -97,12 +97,12 @@ let nowTime = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*
         console.log(`\n先自己账号内部相互邀请助力\n`);
         for (let item of $.temp) {
           console.log(`\n${$.UserName} 去参助力 ${item}`);
-          const helpRes = await toHelp(item.trim());
+         /* const helpRes = await toHelp(item.trim());
           if (helpRes.data.status === 5) {
             console.log(`助力机会已耗尽，跳出助力`);
             $.canHelp = false;
             break;
-          }
+          }*/
         }
       }
       if ($.canHelp) {
