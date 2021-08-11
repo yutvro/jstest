@@ -106,7 +106,7 @@ let nowTime = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*
       }
     }
   }
-  // console.log(JSON.stringify($.temp))
+   console.log($.temp.join("@"))
   if (allMessage) {
     //NODE端,默认每月一日运行进行推送通知一次
     if ($.isNode()) {
