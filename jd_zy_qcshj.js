@@ -71,10 +71,11 @@ if ($.isNode()) {
                 continue
             }
       
-      await gethelpcode()
-      await getlist()
-      await Ariszy()
-      await zy()
+       await gethelpcode()
+       await getlist()
+       await Ariszy()
+       await zy()
+      
    }
 for(let i = 0; i < cookiesArr.length; i++){
       cookie = cookiesArr[i];
@@ -85,6 +86,7 @@ for(let i = 0; i < cookiesArr.length; i++){
        console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}助力模块*********\n`);
       
       await control()
+      await Lottery()
       await userScore()
 }
 
@@ -153,7 +155,7 @@ async function DoTask(){
    })
   }
 async function Lottery(){
- const body = `functionId=healthyDay_getLotteryResult&body=%7B%22appId%22%3A%221E1xRy6c%22%2C%22taskId%22%3A2%7D&client=wh5&clientVersion=1.0.0`
+ const body = `functionId=healthyDay_getLotteryResult&body=%7B%22appId%22%3A%221E1xRy6c%22%2C%22taskId%22%3A7%7D&client=wh5&clientVersion=1.0.0`
  const MyRequest = PostRequest(``,body)
  return new Promise((resolve) => {
    $.post(MyRequest,async(error, response, data) =>{
@@ -219,7 +221,7 @@ async function control(){
 }
 }
 async function dosupport(){
-   const body = `functionId=harmony_collectScore&body=%7B%22appId%22%3A%221E1NYw6w%22%2C%22taskToken%22%3A%22${helpcode}%22%2C%22taskId%22%3A12%2C%22actionType%22%3A0%7D&client=wh5&clientVersion=1.0.0`
+   const body = `functionId=harmony_collectScore&body=%7B%22appId%22%3A%221E1xRy6c%22%2C%22taskToken%22%3A%22${helpcode}%22%2C%22taskId%22%3A6%2C%22actionType%22%3A0%7D&client=wh5&clientVersion=1.0.0`
  const MyRequest = PostRequest(``,body)
  return new Promise((resolve) => {
    $.post(MyRequest,async(error, response, data) =>{
@@ -311,10 +313,10 @@ async function gethelpcode(){
 
 let list8 = result.data.result.taskVos.find(item => item.taskId == 8)
 
-       for(let i = 0; i < list8.assistTaskDetailVo.length; i ++){
-   list4tokenArr.push(8+list8.assistTaskDetailVo[i].taskToken)
-list6tokenArr.push(list8.assistTaskDetailVo[i].taskToken)
-        }
+       
+   list4tokenArr.push(8+list8.assistTaskDetailVo.taskToken)
+list6tokenArr.push(list8.assistTaskDetailVo.taskToken)
+        
         }else{
            $.log(result.data.bizMsg+"\n")
         }
