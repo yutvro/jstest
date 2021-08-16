@@ -56,7 +56,7 @@ const BASE_URL = 'https://wq.jd.com/cubeactive/steprewardv3'
   if (res && res.activeId) $.activeId = res.activeId;
   //$.authorMyShareIds = [...((res && res.codes) || [])];
   //开启红包,获取互助码
-  for (let i = 0; i < cookiesArr.length; i++) {
+  for (let i = 0; i < 10; i++) {
     cookie = cookiesArr[i];
     $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
     $.index = i + 1;
@@ -305,7 +305,7 @@ function getAuthorShareCode(url) {
 
 function taskurl(function_path, body = '', stk) {
   let url = `${BASE_URL}/${function_path}?activeId=${$.activeId}&publishFlag=1&channel=7&${body}&sceneval=2&g_login_type=1&timestamp=${Date.now()}&_=${Date.now() + 2}&_ste=1`
-  const deviceId = UA.split(';') && UA.split(';')[4] || ''
+  const deviceId = UA//.split(';') && UA.split(';')[4] || ''
   url += `&phoneid=${deviceId}`
   url += `&stepreward_jstoken=${
     Math.random().toString(36).slice(2, 10) +
