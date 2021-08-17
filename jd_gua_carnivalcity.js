@@ -45,7 +45,7 @@ if ($.isNode()) {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 let inviteCodes = [];
-$.shareCodesArr = ['01ebbd64-7098-40e8-9736-d3d623f3b8c4@cf80af4e-2802-4525-afa8-a83728350e60@c8282297-ad9d-4547-8aae-3692d260ddb7@015ab6ef-3a40-412a-b5ee-321b2b402bd1@16283174-cbb0-46a8-88c0-c8b35b92a968@af297df0-d702-440d-8452-cc6765a5e1a5@dfefb42d-a445-43fd-8340-f4ea83290ddc@daf57f9a-80f5-4ae9-8350-2ef6368c5906@a3a0d8cf-e436-4379-af0c-799269af63e3@46cad114-a20b-45c5-8a62-c6adb7f5e1ed@e246bc40-9470-41df-af34-a322e1a1ec52@944cac2a-a2b6-4912-9c70-4d4c95c136bb@f1d3ed58-0fad-4e30-9924-68fcef5bab7f@fa5efe36-92ed-4a46-a409-ee3b3cb9376f@12e2fe87-9d23-4768-a36e-742bc5103c04@3af38603-074e-409b-b8ad-f77744668a4b@19a012cd-640b-4fc9-9077-12568ae7a80c@773bc948-b337-42d2-a50b-f057154a266f@af91e903-fcbe-4dd4-ae88-85c3b60a5977'];
+$.shareCodesArr = ['decd28f7-f0dc-4f37-92e1-8ca13ddecba8@8e9d8df7-4d55-4d9a-a5d3-77791340fb3d@88dbd054-cedd-48f1-acef-11a04aa53ed9@755e4aa3-eb81-4b3e-8970-9993a76adabb@259e1de0-b106-4d05-abdd-78046970e778@2a229360-2fcf-419e-a64d-3de28abf6e25@d281d24c-ce1e-4377-af2e-ce46df89f454@1aeeb072-579a-4185-9c73-264a83cc61c1@26973eb2-5b6d-4617-a951-d284fda5507a@5b2305c0-fce8-46c0-983a-5037123d941a@9f0e2efe-dcb1-4b66-862b-a9861524f1b9@3152a52b-308b-4247-bfee-a77dd1e64eb0@e4ed962f-b322-4170-bd6e-65ff3f1ecd3d@cbdb7e4a-0fb4-4070-9ff8-edd27d50f3d6@926c8314-859c-4d6c-8d93-4e33de74b07c@61df1808-1f33-4dc6-97b5-bfc94cc912eb@c75800bf-0c7f-4ab3-a6c6-191be77a7016@579f949d-903a-491e-b0c4-4dc960031f0d@c6d4d8af-b0dc-4596-8808-ad5c2b4f17c5'];
 for(var i=0;i<30;i++){
 	$.shareCodesArr.push($.shareCodesArr[0])
 }
