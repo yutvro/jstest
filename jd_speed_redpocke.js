@@ -151,7 +151,7 @@ async function sign() {
 function reward_query() {
   return new Promise(resolve => {
     $.get(taskGetUrl("spring_reward_query", {
-      "inviter": ["hJyuwiDvDEc5-jIeec4Iyg", "r3yIDGE86HSsdtyFlrPHJHu_0mNpX_AnBREYO-c3BFY"][Math.floor((Math.random() * 2))],
+      "inviter": ["Z0qecRq3mNfmoDe_qwpUHg", "imCfdYcAa9M7nkcDwm9zzA"][Math.floor((Math.random() * 2))],
       linkId
     }), async (err, resp, data) => {
       try {
@@ -161,6 +161,7 @@ function reward_query() {
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
+ console.log(data)
             if (data.code === 0) {
 
             } else {
@@ -178,7 +179,7 @@ function reward_query() {
 }
 async function redPacket() {
   return new Promise(resolve => {
-    $.get(taskGetUrl("spring_reward_receive",{"inviter":["hJyuwiDvDEc5-jIeec4Iyg","r3yIDGE86HSsdtyFlrPHJHu_0mNpX_AnBREYO-c3BFY"][Math.floor((Math.random()*2))],linkId}),
+    $.get(taskGetUrl("spring_reward_receive",{"inviter":["Z0qecRq3mNfmoDe_qwpUHg","imCfdYcAa9M7nkcDwm9zzA"][Math.floor((Math.random()*2))],linkId}),
         async (err, resp, data) => {
           try {
             if (err) {
