@@ -18,7 +18,12 @@ const STRSPLIT = "|";
 const needSum = false;            //是否需要显示汇总
 const printDetail = false;        //是否显示出参详情
 const appIdArr = ['1EFRRxA','1EFRQwA','1E1NYwqc','1EFRXxg','1EFVRxg','1E1NYw6w']
-const shareCodeArr = ['']
+const shareCodeArr = ['T018v_VzQRob8VLRJxKb1ACjVWmIaW5kRrbA',
+  'T018v_VzQRob8VLRJxKb1ACjVXnIaW5kRrbA',
+  'T018v_VzQRob8VLRJxKb1ACTJfnqS7zDcjeQOc',
+  'T018v_VzQRob8VLRJxKb1ACjVQmoaT5kRrbA',
+  'T012vPt6RRgQ91TSCTJfn6-7zDQjeQOc',
+  'T018v_VzQRob8VLRJxKb1ACTJfn6-7zDQjeQOc']
 const homeDataFunPrefixArr = ['interact_template','interact_template','harmony_template','','','','','','','','','','interact_template','interact_template']
 const collectScoreFunPrefixArr = ['','','','','','','','','','','','','interact_template','interact_template']
 const lotteryResultFunPrefixArr = ['','','','','','','','','','','','','','interact_template','interact_template']
