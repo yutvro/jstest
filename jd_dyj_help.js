@@ -1,17 +1,17 @@
 /*
 发财大赢家助力
 更新时间：2021-7-15
-0 6,13,20 * * * https://raw.githubusercontent.com/cdle/jd_study/main/jd_dyj_help.js
+0 0 * * * https://raw.githubusercontent.com/cdle/jd_study/main/jd_dyj_help.js
 */
 const $ = new Env("发财大赢家助力")
 const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random()*4+10)}.${Math.ceil(Math.random()*4)};${randomString(40)}`
 let cookiesArr = []
-let pins = process.env.dyjHelpPins ?? ""
+let pins = process.env.dyjHelpPins ?? "jd_FdDjJBENiJzA"
 let cookie = ''
 let helps = [{
-    id: 0,
-    redEnvelopeId: 'ef00773be4044e67b25fd4dec47b5e5e43081628179826381',
-    markedPin: 'Z0qecRq3mNfmoDe_qwpUHg'
+    id: 1,
+    redEnvelopeId: '1e177d90f1c645bb88c73f5f00e2b15839771629475919379',
+    markedPin: 'imCfdYcAa9M7nkcDwm9zzA'
   }]
 let tools = []
 
@@ -38,10 +38,10 @@ let tools = []
                amount = data?.data?.amount
                helps.push({id: i, redEnvelopeId: redEnvelopeId, markedPin: markedPin})
           }
-			   
           tools.push({id: i, cookie: cookie})  
     }
 		  console.log(helps)
+	
     while (helps.length && tools.length) {
           tool = tools.pop()
           cookie = tool.cookie
