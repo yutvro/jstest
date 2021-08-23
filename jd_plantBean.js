@@ -582,7 +582,7 @@ function requireConfig() {
     const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
     const jdPlantBeanShareCodes = $.isNode() ? require('./jdPlantBeanShareCodes.js') : '';
     //IOS等用户直接用NobyDa的jd cookie
-	console.log(jdPlantBeanShareCodes);
+	//console.log(jdPlantBeanShareCodes);
 	console.log("----------------------");
     if ($.isNode()) {
       Object.keys(jdCookieNode).forEach((item) => {
