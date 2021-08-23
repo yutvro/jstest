@@ -42,6 +42,7 @@ let randomCount = $.isNode() ? 20 : 5;
 let num;
 !(async () => {
   await requireConfig();
+  console.log('----------')
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
@@ -581,6 +582,8 @@ function requireConfig() {
     const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
     const jdPlantBeanShareCodes = $.isNode() ? require('./jdPlantBeanShareCodes.js') : '';
     //IOS等用户直接用NobyDa的jd cookie
+	//console.log(jdPlantBeanShareCodes);
+	console.log("----------------------");
     if ($.isNode()) {
       Object.keys(jdCookieNode).forEach((item) => {
         if (jdCookieNode[item]) {
@@ -603,6 +606,7 @@ function requireConfig() {
       if ($.getdata('jd_plantbean_inviter')) $.shareCodesArr = $.getdata('jd_plantbean_inviter').split('\n').filter(item => !!item);
       console.log(`\nBoxJs设置的${$.name}好友邀请码:${$.getdata('jd_plantbean_inviter') ? $.getdata('jd_plantbean_inviter') : '暂无'}\n`);
     }
+	
     // console.log(`\n种豆得豆助力码::${JSON.stringify($.shareCodesArr)}`);
     console.log(`您提供了${$.shareCodesArr.length}个账号的种豆得豆助力码\n`);
     resolve()
