@@ -9,7 +9,7 @@ export yqm="aKIygK8y83zhxs2LmpQv46conKGFsMrny570tt6IEhU%3D"（填你自己的邀
 活动31号结束
 至少要一两百ck，号少的可以跑一下帮作者助力，号多的先填变量再跑，否则都助力作者了
 [task_local]
-0 10 * * * http://nm66.top/jd_yqyl.js, tag=柠檬邀请有礼, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+0 */2 * * * http://nm66.top/jd_yqyl.js, tag=柠檬邀请有礼, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
 const $ = new Env('柠檬邀请有礼');
 const notify = $.isNode() ? require('./sendNotify') : '';
