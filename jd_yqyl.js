@@ -18,11 +18,12 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
-let yqm = '1CRgWazqVItY8aaqpkLH0Gl%2FO%2B1OYbYMAaFSLHsfq0U%3D';
+let yqm = '';
 let zdtx = true //设置为true自动抢提现100
 if (process.env.yqm) {
   yqm = process.env.yqm;
 }
+if(!yqm) return;
 if (process.env.zdtx) {
   zdtx = process.env.zdtx;
 }
