@@ -85,14 +85,22 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
             await $.wait(3000);
         }
     }
+	$.authorCode=[{ groupId: 5818671, user: '18014246678_p', max: false },
+  { groupId: 5821689, user: 'jd_FdDjJBENiJzA', max: false },
+  { groupId: 5811761, user: 'jd_41c752f800930', max: false },
+  { groupId: 5811762, user: 'jd_oKMcRZnuBXfM', max: false },
+  { groupId: 5808809, user: '269569205', max: false },
+  { groupId: 5816806, user: '18915299015_p', max: false }]
     if ($.authorCode && $.authorCode.length > 999999) {
         for (let i = 0; i < cookiesArr.length; i++) {
             cookie = cookiesArr[i];
             $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
             $.canHelp = true;
             console.log(`\n${$.UserName} 去助力【zero205】\n`)
+			
             for (let j = 0; j < $.authorCode.length && $.canHelp; j++) {
-                $.item = $.authorCode[j];
+                $.item = $.authorCode[j].groupId;
+
                 await doHelp($.item)
                 await $.wait(2000)
             }
