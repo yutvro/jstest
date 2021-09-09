@@ -46,7 +46,15 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
     }
     await getAuthorShareCode()
     console.log(`\n\n@Author：zero205\n@github：https://github.com/zero205/JD_tencent_scf/tree/main\n@Tips：默认不执行入会任务\n\n助力逻辑：优先账号内互助，有剩余助力次数再帮我助力\n`);
-    $.inviteList = []
+    $.inviteList = [
+  { groupId: 5818671, user: '18014246678_p', max: false },
+  { groupId: 5821689, user: 'jd_FdDjJBENiJzA', max: false },
+  { groupId: 5811761, user: 'jd_41c752f800930', max: false },
+  { groupId: 5811762, user: 'jd_oKMcRZnuBXfM', max: false },
+  { groupId: 5808809, user: '269569205', max: false },
+  { groupId: 5816806, user: '18915299015_p', max: false },
+  { groupId: 5820732, user: 'jd_718b10084be4f', max: false }
+]
     for (let i = 0; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
             cookie = cookiesArr[i];
