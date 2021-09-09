@@ -209,6 +209,7 @@ async function collectShareCode() {
                         } else {
                             console.log(JSON.stringify(data));
                         }
+						console.log($.inviteList);
                     }
                 }
             } catch (e) {
