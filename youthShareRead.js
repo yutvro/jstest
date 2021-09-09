@@ -14,8 +14,8 @@ https://gitee.com/curtinlv/qx/raw/master/rewrite/youth.conf, tag=中青 by Curti
 const $ = new Env("中青分享阅读-助力10次");
 
 //let request = ""
-let $url = process.env.WECHATURL
-
+let $url = $.isNode() ? (process.env.WECHATURL ? process.env.WECHATURL : "") : ($.getdata('WECHATURL') ? $.getdata('WECHATURL') : "")
+//$url="https://script.baertt.com/count2/callback?type=1&si=8ec142b6e286ae000e69bc301d03a1b5&referer=https%253A%252F%252Ffocu.youth.cn%252Fnewzerohot%252F20210421%253Fsid%253D37729461%2526uid%253D58041470%2526timestamp%253D1631116855%2526signature%253DbD6x5nzGA2pvRerWXy4Q8WzP5cVWAYP1Og8LdMkQlPVqJYN0Bo%2526share_id%253D58041470377294611631116861085%2526scene_id%253Dfire_share%2526time%253D1631116861085&_=1631154665739&jsonpcallback=jsonp3"
 if ($url){ 
 	getShareInfo();
 }
@@ -28,6 +28,7 @@ async function getShareInfo() {
   try {
     if ($url.indexOf("script.baertt.com/count2") > -1) {
       var url = $url;
+	  console.log(url)
       var s_si = url.match(/si=(.*?)&/)[1];
       console.log("url:" + url);
       console.log("s_si:" + s_si);
