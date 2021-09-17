@@ -9,37 +9,65 @@ Quantumuil X：添加远程重写
 https://gitee.com/curtinlv/qx/raw/master/rewrite/youth.conf, tag=中青 by Curtin, update-interval=172800, opt-parser=false, enabled=true
 
 中青分享一篇文章到自己的微信上，自己点击一下即触发会自动完成10好有阅读奖励 500青豆/次。
-
+重写 https://kd.youth.cn/WebApi/invite/openHourRed 
  */
 const $ = new Env("中青定时宝箱");
 
 //let request = ""
-let $url = $.isNode() ? (process.env.zq_openboxbody ? process.env.zq_openboxbody : "") : ($.getdata('zq_openboxbody') ? $.getdata('zq_openboxbody') : "")
-$url="access=WIFI&app-version=3.5.5&app_version=3.5.5&carrier=%E4%B8%AD%E5%9B%BD%E7%A7%BB%E5%8A%A8&channel=c1002&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7B1pWKwt4VshHyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdeW2FjJiWrs-mapqGcXY&cookie_id=6c7a19964e3955c7dc38557d0fcd1696&device_brand=Xiaomi&device_id=54575505&device_model=Mi%2B10%2BPro&device_platform=android&device_type=android&inner_version=202108181034&mi=1&oaid=7027eb0359f65c43&openudid=5bcac6814e51087d&os_api=30&os_version=RKQ1.200826.002%2Btest-keys&phone_network=WIFI&phone_sim=1&request_time=1631857494&resolution=1080x2206&sim=1&sm_device_id=20210727214538d085a089f67431e365e8084b16132355014bd0c121ad3a6b&subv=1.2.2&time=1631857472&uid=58041470&uuid=75f43853288a4dbf9946735994b2f58a&version_code=63&version_name=%E4%B8%AD%E9%9D%92%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7B1pWKwt4VshHyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdeW2FjJiWrs-mapqGcXY&zqkey_id=6c7a19964e3955c7dc38557d0fcd1696"
-var urls=$url.split('@')
+let openHourRed = $.isNode() ? (process.env.zq_openboxbody ? process.env.zq_openboxbody : "") : ($.getdata('zq_openboxbody') ? $.getdata('zq_openboxbody') : "")
+openHourRed="access=WIFI&app-version=3.5.5&app_version=3.5.5&carrier=%E4%B8%AD%E5%9B%BD%E7%A7%BB%E5%8A%A8&channel=c1002&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7B1pWKwt4VshHyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdeW2FjJiWrs-mapqGcXY&cookie_id=6c7a19964e3955c7dc38557d0fcd1696&device_brand=Xiaomi&device_id=54575505&device_model=Mi%2B10%2BPro&device_platform=android&device_type=android&inner_version=202108181034&mi=1&oaid=7027eb0359f65c43&openudid=5bcac6814e51087d&os_api=30&os_version=RKQ1.200826.002%2Btest-keys&phone_network=WIFI&phone_sim=1&request_time=1631857494&resolution=1080x2206&sim=1&sm_device_id=20210727214538d085a089f67431e365e8084b16132355014bd0c121ad3a6b&subv=1.2.2&time=1631857472&uid=58041470&uuid=75f43853288a4dbf9946735994b2f58a&version_code=63&version_name=%E4%B8%AD%E9%9D%92%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7B1pWKwt4VshHyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdeW2FjJiWrs-mapqGcXY&zqkey_id=6c7a19964e3955c7dc38557d0fcd1696"
+var urls=openHourRed.split('@')
 !(async () => {
-for(var k=0;k<urls.length;k++){
+	 if (typeof $request !== "undefined") {
+     await getopenboxbody()
+     $.done()
+ }else{
+	for(var k=0;k<urls.length;k++){
 	$url=urls[k]
 	if ($url){ 
-	await getShareInfo();
+		console.log(`--------第 ${k + 1} 个账号开宝箱奖励执行中--------\n`)
+	await postShareInfoa("https://kd.youth.cn/WebApi/invite/openHourRed",$url)
 	}
 	else
 	{
 		$.msg("中青url获取失败", "", "️中青url获取失败");
 	}
+	}
 }
 
 })()
+String.prototype.getQueryString = function(name)//name 是URL的参数名字
+{
+var reg = new RegExp("(^|&|\\?)"+ name +"=([^&]*)(&|$)"), r;
+if (r=this.match(reg)) return unescape(r[2]); return null;
+}; 
+async function getopenboxbody() {
+if ($request.url.match(/kd.youth.cn\/WebApi\/invite\/openHourRed/)) {
+          bodyVal=$request.body
+			  zqkey_id=$request.body.getQueryString('zqkey_id')
+          await $.wait(1100);
+        if (openHourRed) {
+            if (openHourRed.indexOf(zqkey_id) > -1) {
+                $.log("此看开宝箱请求已存在，本次跳过")
+            } else if (openHourRed.indexOf(zqkey_id) == -1) {
+                openHourRed = openHourRed + "@" + bodyVal;
+                $.setdata(openHourRed, 'zq_openHourRed');
+                $.log(`${$.name}获取定时宝箱: 成功, openHourRed: ${bodyVal}`);
+                bodys = openHourRed.split("@")
+                $.msg($.name, "获取第" + bodys.length + "个定时宝箱任务请求: 成功🎉", ``)
+            }
+        } else {
+            $.setdata(bodyVal, 'zq_openHourRed');
+            $.log(`${$.name}获取看看赚任务: 成功, openHourRed: ${bodyVal}`);
+            $.msg($.name, `获取第一个个定时宝箱任务请求请求: 成功🎉`, ``)
+        }
+    }
 
-//分享数据获取
-async function getShareInfo() {
-  
-		await postShareInfoa("https://kd.youth.cn/WebApi/invite/openHourRed",$url)
-   
+  }
 
-  $.done();
-}
 async function postShareInfoa(o_url,body) {
+	var time1 = Date.parse( new Date() ).toString();
+                time1 = time1.substr(0,10);
     return new Promise((resolve) => {
         setTimeout(() => {
         var desclist = ["㊙️这是秘密分享~", "😁不能外传哦~", "☺️猜猜我是谁~","😆别点击太猛，容易feng","适当分享哈哈哈~","🈶广告位招租~","🔍开天眼查会员找木白姐姐~","🎈TG https://t.me/topstyle996","☎️TG频道 https://t.me/TopStyle2021","😆差不多得了，要黑号了~"];
@@ -50,21 +78,23 @@ async function postShareInfoa(o_url,body) {
             'Accept-Encoding': `gzip, deflate, br`,
             'Accept': `*/*`,
             'Connection': `keep-alive`,
-            'Referer': `https://my.allcitysz.net/`,
-            'Host': `script.xunsl.com`,
-            'User-Agent': `Mozilla/5.0 (iPhone; CPU iPhone OS ${iosV}_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.7(0x18000730) NetType/WIFI Language/zh_CN`,
-            'Accept-Language': `zh-cn`
+            'Referer': `https://kd.youth.cn/h5/20190410invitefriend/?`+body+'&request_time=' + time1+'&time=' + time1,
+            'Host': `kd.youth.cn`,
+				'Origin':'https://kd.youth.cn',
+            'User-Agent': `Mozilla/5.0 (Linux; Android 11; Mi 10 Pro Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/90.0.4430.210 Mobile Safari/537.36`,
+            'Accept-Language': `zh-cn`,
         };
 
         let url = {
                 url: o_url,
                 headers: header,
-					body : body
+				body : body
             };
+				console.log("sss")
         $.post(url, async (err, resp, data) => {
             try {
-               
-                console.log(data)
+                const result = JSON.parse(data)
+                console.log(result.msg)
             } catch (e) {
                 $.logErr(e, resp);
             } finally {
@@ -73,7 +103,7 @@ async function postShareInfoa(o_url,body) {
         });
 
         return 0;
-        }, 3000)
+        }, 1000)
     })
 }
 
