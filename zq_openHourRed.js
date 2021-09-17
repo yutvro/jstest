@@ -12,10 +12,21 @@ https://gitee.com/curtinlv/qx/raw/master/rewrite/youth.conf, tag=中青 by Curti
 重写 https://kd.youth.cn/WebApi/invite/openHourRed  https://raw.githubusercontent.com/liu269569205/jstest/master/zq_openHourRed.js
  */
 const $ = new Env("中青定时宝箱");
-
+  function uuid2() {
+                    var s = [];
+                    var hexDigits = "0123456789abcdef";
+                    for (var i = 0; i < 32; i++) {
+                    s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+                    }
+                    s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+                    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+                    s[8] = s[13] = s[18] = s[23];
+                    var uuid = s.join("");
+                    return uuid;
+                }
 //let request = ""
-let openHourRed = $.isNode() ? (process.env.zq_openHourRed ? process.env.zq_openHourRed : "") : ($.getdata('zq_openHourRed') ? $.getdata('zq_openHourRed') : "")
-//openHourRed="access=WIFI&app-version=3.5.5&app_version=3.5.5&carrier=%E4%B8%AD%E5%9B%BD%E7%A7%BB%E5%8A%A8&channel=c1002&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7B1pWKwt4VshHyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdeW2FjJiWrs-mapqGcXY&cookie_id=6c7a19964e3955c7dc38557d0fcd1696&device_brand=Xiaomi&device_id=54575505&device_model=Mi%2B10%2BPro&device_platform=android&device_type=android&inner_version=202108181034&mi=1&oaid=7027eb0359f65c43&openudid=5bcac6814e51087d&os_api=30&os_version=RKQ1.200826.002%2Btest-keys&phone_network=WIFI&phone_sim=1&request_time=1631857494&resolution=1080x2206&sim=1&sm_device_id=20210727214538d085a089f67431e365e8084b16132355014bd0c121ad3a6b&subv=1.2.2&time=1631857472&uid=58041470&uuid=75f43853288a4dbf9946735994b2f58a&version_code=63&version_name=%E4%B8%AD%E9%9D%92%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7B1pWKwt4VshHyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdeW2FjJiWrs-mapqGcXY&zqkey_id=6c7a19964e3955c7dc38557d0fcd1696"
+let openHourRed = $.isNode() ? (process.env.jc_cookie ? process.env.jc_cookie : "") : ($.getdata('jc_cookie') ? $.getdata('jc_cookie') : "")
+//openHourRed="zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7B1z2Kw3ZuzhHyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdebOFspyYr7nMapqGcXY&zqkey_id=9666437e3f9bdce35a6de0ecc7ffb68a&uid=58943830"
 var urls=openHourRed.split('@')
 !(async () => {
 	 if (typeof $request !== "undefined") {
@@ -24,6 +35,18 @@ var urls=openHourRed.split('@')
  }else{
 	for(var k=0;k<urls.length;k++){
 	$url=urls[k]
+	bodyVal = urls[k].split('&uid=')[0];
+                var time1 = Date.parse( new Date() ).toString();
+                time1 = time1.substr(0,10);
+				var uuid=uuid2();
+				var uuid1=uuid2();
+                cookie = bodyVal.replace(/zqkey=/, "cookie=")
+                cookie_id = cookie.replace(/zqkey_id=/, "cookie_id=")
+					console.log(cookie_id)
+
+					var device_id=54565505+parseInt(Math.random()*10000)
+                $url= cookie_id  +'&access=WIFI&app-version=3.5.5&app_version=3.5.5&carrier=%E4%B8%AD%E5%9B%BD%E7%A7%BB%E5%8A%A8&channel=c1002&device_brand=Xiaomi&device_id='+device_id+'&device_model=Mi%2B10%2BPro&device_platform=android&device_type=android&inner_version=202108181034&mi=1&os_api=30&os_version=RKQ1.200826.002%2Btest-keys&phone_network=WIFI&phone_sim=1&resolution=1080x2206&sim=1&sm_device_id=20210727214538d085a089f67431e3'+uuid1+'&subv=1.2.2&uid=58041470&uuid='+uuid+'&version_code=63&version_name=%E4%B8%AD%E9%9D%92%E7%9C%8B%E7%82%B9'+'&request_time=' + time1 +'&time=' + time1 +'&'+ bodyVal
+				console.log($url)
 	if ($url){ 
 		console.log(`--------第 ${k + 1} 个账号开宝箱奖励执行中--------\n`)
 	await postShareInfoa("https://kd.youth.cn/WebApi/invite/openHourRed",$url)
