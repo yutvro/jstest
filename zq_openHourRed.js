@@ -25,7 +25,7 @@ const $ = new Env("中青定时宝箱");
                     return uuid;
                 }
 //let request = ""
-let openHourRed = $.isNode() ? (process.env.jc_cookie ? process.env.jc_cookie : "") : ($.getdata('jc_cookie') ? $.getdata('jc_cookie') : "")
+let openHourRed = $.isNode() ? (process.env.zq_cookie ? process.env.zq_cookie : "") : ($.getdata('zq_cookie') ? $.getdata('zq_cookie') : "")
 //openHourRed="zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7B1z2Kw3ZuzhHyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdebOFspyYr7nMapqGcXY&zqkey_id=9666437e3f9bdce35a6de0ecc7ffb68a&uid=58943830"
 var urls=openHourRed.split('@')
 !(async () => {
