@@ -84,6 +84,7 @@ let nowTime = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*
       }
       await shareCodesFormat();
       await JD818();
+		console.log($.temp)
     }
   }
   if (allMessage) {
