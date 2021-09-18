@@ -85,7 +85,7 @@ let nowTime = new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 
         }
       }
     }
-	console.log($.temp);
+	console.log($.temp.join("@"));
 
   }
   if (allMessage) {
