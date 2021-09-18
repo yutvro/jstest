@@ -80,6 +80,7 @@ let tokenInfo = {}, hotInfo = {}
     $.access_token = tokenInfo[$.UserName]
     $.canHelp = true
     if (hotInfo[$.UserName]) continue
+		console.log($.shareCodes);
     if ($.shareCodes && $.shareCodes.length) {
       console.log(`\n自己账号内部循环互助\n`);
       for (let j = 0; j < $.shareCodes.length && $.canHelp; j++) {
