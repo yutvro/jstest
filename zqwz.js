@@ -60,7 +60,9 @@ if (zq_timebody) {
     var fs = require("fs");
     zq_timebody = fs.readFileSync("zq_timebody.txt", "utf8");
     if (zq_timebody !== `undefined`) {
-        zq_timebodys = zq_timebody.split("\n");
+		if (zq_timebodys.indexOf("&") > -1) {
+			zq_timebodys = zq_timebody.split("&");
+		}
     } else {
         $.msg($.name, '【提示】请点击文章阅读1分钟获取timebody，再跑一次脚本', '不知道说啥好', {
             "open-url": "给您劈个叉吧"
@@ -87,7 +89,10 @@ if (zqwzbody) {
     var fs = require("fs");
     zqwzbody = fs.readFileSync("zqwzbody.txt", "utf8");
     if (zqwzbody !== `undefined`) {
-        zqwzbodys = zqwzbody.split("\n");
+		if (zqwzbody.indexOf("&") > -1) {
+			zqwzbodys = zqwzbody.split("&");
+		}
+        
     } else {
         $.msg($.name, '【提示】请点击文章获取body，再跑一次脚本', '不知道说啥好', {
             "open-url": "给您劈个叉吧"
