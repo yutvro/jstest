@@ -1,13 +1,47 @@
+/*
+
+软件名称:微信_金银手指
+
+项目注册地址(微信扫码):https://gitee.com/soy-tool/app-script/raw/master/picture/wx_jysz.png
+
+变量抓取:
+
+打开小黄鸟抓包,微信进金银手指界面 找有http://apponlie.sahaj.cn的连接
+点进去他的请求头中token 和 User-Agent
+
+必要变量:
+soy_wx_jysz_token
+
+可选变量
+soy_wx_jysz_User_Agent
+
+多个token用 @ 或 # 或 换行 隔开
+
+v2p配置如下：
+
+【REWRITE】
+匹配链接（正则表达式） http://apponlie.sahaj.cn/user/myInfo
+
+对应重写目标   wx_jysz.js
+
+【MITM】  
+apponlie.sahaj.cn
+
+
+cron 0 8-22/1 * * *
+
+*/
+
+
 const $ = new Env('微信_金银手指');
 const notify = $.isNode() ? require('./sendNotify') : '';
 const CryptoJS = require('crypto-js')
 const app_soy_wx_jysz_token = []
-const app_soy_wx_jysz_User_Agent = []
 let subTitle = ``;
 let status;
 status = (status = ($.getval("gk_status") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 let soy_wx_jysz_token = $.getdata('soy_wx_jysz_token')
-let totalgold  = ""
+
 !(async () => {
 
 if ($.isNode()) {
@@ -20,7 +54,7 @@ appyq = process.env.appyq;
         return;
     }
         
-     if (process.env.soy_wx_jysz_token && process.env.soy_wx_jysz_token.indexOf('@') > -1) {
+    if (process.env.soy_wx_jysz_token && process.env.soy_wx_jysz_token.indexOf('@') > -1) {
         soy_wx_jysz_token = process.env.soy_wx_jysz_token.split('@');
     } else if (process.env.soy_wx_jysz_token && process.env.soy_wx_jysz_token.indexOf('\n') > -1) {
         soy_wx_jysz_token = process.env.soy_wx_jysz_token.split('\n');
@@ -35,24 +69,8 @@ appyq = process.env.appyq;
             app_soy_wx_jysz_token.push(soy_wx_jysz_token[item]);
         };
     });
-    
-    if (process.env.soy_wx_jysz_User_Agent && process.env.soy_wx_jysz_User_Agent.indexOf('@') > -1) {
-        soy_wx_jysz_User_Agent = process.env.soy_wx_jysz_User_Agent.split('@');
-    } else if (process.env.soy_wx_jysz_User_Agent && process.env.soy_wx_jysz_User_Agent.indexOf('\n') > -1) {
-        soy_wx_jysz_User_Agent = process.env.soy_wx_jysz_User_Agent.split('\n');
-    } else if(process.env.soy_wx_jysz_User_Agent && process.env.soy_wx_jysz_User_Agent.indexOf('#') > -1){
-        soy_wx_jysz_User_Agent = process.env.soy_wx_jysz_User_Agent.split('#');
-    }else{
-        soy_wx_jysz_User_Agent = process.env.soy_wx_jysz_User_Agent.split();
-    };
-    
-    Object.keys(soy_wx_jysz_User_Agent).forEach((item) => {
-        if (soy_wx_jysz_User_Agent[item]) {
-            app_soy_wx_jysz_User_Agent.push(soy_wx_jysz_User_Agent[item]);
-        };
-    });
 
-    //soy_wx_jysz_User_Agent = process.env.soy
+    soy_wx_jysz_User_Agent = process.env.soy_wx_jysz_User_Agent
     
     
 }else{
@@ -60,19 +78,19 @@ appyq = process.env.appyq;
     await get_appdata()
   } else{
   app_soy_wx_jysz_token.push($.getdata('soy_wx_jysz_token'))
-  app_soy_wx_jysz_User_Agent.push($.getdata('soy_wx_jysz_User_Agent'))
-  
-  }
-apptz = $.getdata('apptz');//是否推送，默认true
-apptx = $.getdata('apptx');//默认提现假,需要自行修改变量
-appyq = $.getdata('appyq');//默认邀请,需要自行修改变量
+  soy_wx_jysz_User_Agent.push($.getdata('soy_wx_jysz_User_Agent'))
+  soy_wx_jysz_User_Agent = $.getdata('soy_wx_jysz_User_Agent')
+  apptz = $.getdata('apptz');
+apptx = $.getdata('apptx');
+appyq = $.getdata('appyq');
     
     let jyszcount = ($.getval('jyszcount') || '1');
   for (let i = 2; i <= jyszcount; i++) {
     app_soy_wx_jysz_token.push($.getdata(`soy_wx_jysz_token${i}`))
-    app_soy_wx_jysz_User_Agent.push($.getdata(`soy_wx_jysz_User_Agent${i}`))
    
 }
+  }
+
 }
     console.log(
         `\n=== 脚本执行 - 北京时间：${new Date(
@@ -87,18 +105,13 @@ appyq = $.getdata('appyq');//默认邀请,需要自行修改变量
       
 for (i = 0; i < app_soy_wx_jysz_token.length; i++) {
     soy_wx_jysz_token=app_soy_wx_jysz_token[i]
-    soy_wx_jysz_User_Agent=app_soy_wx_jysz_User_Agent[i]
-    //soy_wx_jysz_headers=soy_wx_jysz_User_Agent
-    //JSON.stringify(
-    /*if(!soy_wx_jysz_User_Agent){
+    
+    if(!soy_wx_jysz_User_Agent){
         soy_wx_jysz_User_Agent='Mozilla/5.0 (iPhone; CPU iPhone OS 12_5_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.13(0x18000d31) NetType/WIFI Language/zh_CN'
-        soy_wx_jysz_headers= {"Host": "apponlie.sahaj.cn","Accept": "application/json","Origin": "http://ppllmm.zhuwentao52.top","User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_5_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.13(0x18000d31) NetType/WIFI Language/zh_CN","token": `${soy_wx_jysz_token}`,"X-Requested-With": "com.tencent.mm","Referer": "http://ppllmm.zhuwentao52.top/"}
-    }else{
-      soy_wx_jysz_headers= {"Host": "apponlie.sahaj.cn","Accept": "application/json","Origin": "http://ppllmm.zhuwentao52.top","User-Agent": `${soy_wx_jysz_User_Agent}`,"token": `${soy_wx_jysz_token}`,
-      "X-Requested-With": "com.tencent.mm","Referer": "http://ppllmm.zhuwentao52.top/"} 
-    }*/
+    }
     soy_wx_jysz_headers= {"Host": "apponlie.sahaj.cn","Accept": "application/json","Origin": "http://ppllmm.zhuwentao52.top","User-Agent": `${soy_wx_jysz_User_Agent}`,"token": `${soy_wx_jysz_token}`,
-    "X-Requested-With": "com.tencent.mm","Referer": "http://ppllmm.zhuwentao52.top/"}
+      "X-Requested-With": "com.tencent.mm","Referer": "http://ppllmm.zhuwentao52.top/"} 
+    
     
     $.index = i + 1;
     
@@ -106,9 +119,7 @@ for (i = 0; i < app_soy_wx_jysz_token.length; i++) {
     
         await soy_jysz_Info()
         await soy_jysz_fetchTask()
-        
-        await soy_jysz_TX();
-        
+        await soy_jysz_TX()
     
     
 };
@@ -153,11 +164,10 @@ function soy_jysz_Info(){
             let result = JSON.parse(data)
             if(result.code==0){
                 gold=result.data.goldNow
-                totalgold=gold
                 txgold=gold/4000*0.35
-                console.log(`\n【${$.name}---用户信息】: \n---用户昵称：${result.data.nameNick}\n---当前剩余金币：${gold}\n---可提现金额：${txgold.toFixed(1)}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 用户信息】: \n---用户昵称：${result.data.nameNick}\n---当前剩余金币：${gold}\n---可提现金额：${txgold.toFixed(1)}`)
             }else{
-                console.log(`\n【${$.name}---用户信息】: ${result.msg}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 用户信息】: ${result.msg}`)
             }
             
             resolve()
@@ -179,7 +189,7 @@ function soy_jysz_fetchTask() {
                 taskId = result.data.taskId
                 TodayCount = result.data.completeTodayCount
                 TodayGold = result.data.completeTodayGold
-                console.log(`\n【${$.name}---阅读状态】: \n---今日阅读次数:${TodayCount}\n---今日金币：${TodayGold}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】: \n---今日阅读次数:${TodayCount}\n---今日金币：${TodayGold}`)
                 if (TodayCount >= 25) {
                     await soy_jysz_taskSeq(1)
                 }
@@ -187,26 +197,26 @@ function soy_jysz_fetchTask() {
                     await soy_jysz_taskSeq(2)
                 }
                 if (taskId == null&&result.data.bizCode==30){
-                    console.log(`\n【${$.name}---阅读状态】:获取任务失败，下批文章将在24小时后到来`)
+                    console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】:获取任务失败，下批文章将在24小时后到来`)
                 }
                 if (taskId == null&&result.data.bizCode==11){
-                    console.log(`\n【${$.name}---阅读状态】:获取任务失败，当天达到上限`)
+                    console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】:获取任务失败，当天达到上限`)
                 }
                 if (taskId == null&&result.data.bizCode==10){
-                    console.log(`\n【${$.name}---阅读状态】:获取任务失败，下批文章将在60分钟后到达`)
+                    console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】:获取任务失败，下批文章将在60分钟后到达`)
                 }
                 if (taskId !== null) {
                     let key = CryptoJS.enc.Utf8.parse("5kosc7jy2w0fxx3s")
                     let plaintText = `{"taskId":${taskId}}`
                     let jm = CryptoJS.AES.encrypt(plaintText, key, {mode: CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7})
-                    await $.wait(Math.floor(Math.random()*(13000-10000+1000)+10000))
+                    await $.wait(Math.floor(Math.random()*(15000-10000+1000)+10000))
                     await soy_jysz_task(jm)
                     
                 } 
                 
                 
             }else{
-                console.log(`\n【${$.name}---阅读状态】: ${result.msg}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】: ${result.msg}`)
             }
             resolve()
         })
@@ -222,7 +232,7 @@ function soy_jysz_taskSeq(type) {
         }, async(error, response, data) => {
             //console.log(data)
             let result = JSON.parse(data)
-            console.log(`\n【${$.name}---阅读状态】: ${result.msg}`)
+            console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】: ${result.msg}`)
 
             resolve()
         })
@@ -238,14 +248,14 @@ function soy_jysz_task(data) {
             },
             body : `${data}`,
         }, async(error, response, data) => {
-            //console.log(data)
+            console.log(data)
             let result = JSON.parse(data)
             if(result.code==0){
-                console.log(`\n【${$.name}---阅读第${TodayCount+1}次文章】: 获得 ${result.data.goldAward} 金币`)
+                console.log(`\n【${$.name}---账号 ${$.index} 阅读第${TodayCount+1}次文章】: 获得 ${result.data.goldAward} 金币`)
                 await $.wait(Math.floor(Math.random()*(50000-2000+1000)+2000))
                 await soy_jysz_fetchTask()
             }else{
-              console.log(`\n【${$.name}---阅读第${TodayCount}次文章】: ${result.msg}`)
+              console.log(`\n【${$.name}---账号 ${$.index} 阅读第${TodayCount}次文章】: ${result.msg}`)
             }
             
             resolve()
@@ -264,8 +274,6 @@ async function soy_jysz_TX() {
             let result = JSON.parse(data)
             if(result.code==0){
                 gold=result.data.goldNow
-                //if (gold >= 10000) {
-                    //console.log(`金币数量大于5000: 开始提现`)
                 if (gold >= 5000){
                     txgold=gold/4000*0.35
                     let key = CryptoJS.enc.Utf8.parse("5kosc7jy2w0fxx3s")
@@ -283,10 +291,10 @@ async function soy_jysz_TX() {
                             //console.log(data)
                             let result = JSON.parse(data)
                             if (result.code == 0) {
-                                console.log(`\n【${$.name}---提现】: 提现成功`)
-                                return;
+                                console.log(`\n【${$.name}---账号 ${$.index} 提现】: 提现成功`)
+                                
                             } else {
-                                console.log(`\n【${$.name}---提现】: ${result.msg}`)
+                                console.log(`\n【${$.name}---账号 ${$.index} 提现】: ${result.msg}`)
                                 
                             }
                             resolve()
@@ -295,13 +303,11 @@ async function soy_jysz_TX() {
                         
                     })
                 }else{
-                   console.log(`\n【${$.name}---提现】: 余额不足,无法提现`) 
+                   console.log(`\n【${$.name}---账号 ${$.index} 提现】: 余额不足,无法提现`) 
                 }
-                //} else {
-                //    console.log(`金币数量小于5000: 不进行提现`)
-                //}
+                
             }else{
-                console.log(`\n【${$.name}---提现信息】: ${result.msg}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 提现信息】: ${result.msg}`)
             }
             
             resolve()
