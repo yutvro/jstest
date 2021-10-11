@@ -11,7 +11,22 @@ import {accessSync, readFileSync} from "fs";
 import {Md5} from "ts-md5";
 
 let cookie: string = '', res: any = '', UserName: string, index: number, UA: string = '';
-let shareCodesSelf: string[] = [], shareCodes: string[] = [], shareCodesHW: string[] = [];
+let shareCodesSelf: string[] = [], shareCodes: string[] = [], shareCodesHW: string[] = [
+  'SkUKgSgOStzUXCmeBvkn3ff_lyKVTLcIMAZu-7GEXZV1Ffe2U484vy5GrKcjlRVW',
+  'SkUKgSgOStzUXCmeBvkn3WTczu5K5S36ubVUGEvE8n32Txssnwy2oDrMJXIUUCvh',
+  'SkUKgSgOStzUXCmeBvkn3Xh-9PKBceyCWQrKw2hAS3d1Ffe2U484vy5GrKcjlRVW',
+  'SkUKgSgOStzUXCmeBvkn3Q25WpYvDp7iWfrQFLQQZtGD5Kk19Xjfk-LkqEHM_MhW',
+  'SkUKgSgOStzUXCmeBvkn3SppKZ2IKvOUV9I4tiNNX9GeUuXHgMxnhU_3NSne1uUK',
+  'SkUKgSgOStzUXCmeBvkn3U7J_QMScuDxWLwRQUsyetI',
+  'SkUKgSgOStzUXCmeBvkn3WBtOaOJWgeCH8Vai3sx_QbDsFR7R9lUgnGhMIeJpyAi',
+  'SkUKgSgOStzUXCmeBvkn3ZK-unm8ZUwRzu2RA7q_eA31Shc5L93TYJqQUjzK6eSe',
+  'SkUKgSgOStzUXCmeBvkn3fSeHe6SggDSdVn2BrwMEswZnfh2xiZMcVZOQIBikSfg',
+  'SkUKgSgOStzUXCmeBvkn3WBb6u3UyW6is52vwgOFWAk',
+  'SkUKgSgOStzUXCmeBvkn3TlemJWGkTbqYwU11pXVleMoF6NsfgYl7S4RmARpwPDZ',
+  'SkUKgSgOStzUXCmeBvkn3aqtBxrEEIdCtt0N48AgX1I',
+  'SkUKgSgOStzUXCmeBvkn3edfMzSwzYwlgV2YnDJmRqVUlQ3b0FAoTjFbW05vHNU7',
+  'SkUKgSgOStzUXCmeBvkn3dnLMST1lEoUlfkyL5n3Z5ZjDsvK_-agN_DxKWoBAaaS',
+];
 
 !(async () => {
   let except: string[];
