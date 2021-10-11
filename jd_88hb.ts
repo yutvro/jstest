@@ -21,11 +21,6 @@ let shareCodesSelf: string[] = [], shareCodes: string[] = [], shareCodesHW: stri
   'SkUKgSgOStzUXCmeBvkn3WBtOaOJWgeCH8Vai3sx_QbDsFR7R9lUgnGhMIeJpyAi',
   'SkUKgSgOStzUXCmeBvkn3ZK-unm8ZUwRzu2RA7q_eA31Shc5L93TYJqQUjzK6eSe',
   'SkUKgSgOStzUXCmeBvkn3fSeHe6SggDSdVn2BrwMEswZnfh2xiZMcVZOQIBikSfg',
-  'SkUKgSgOStzUXCmeBvkn3WBb6u3UyW6is52vwgOFWAk',
-  'SkUKgSgOStzUXCmeBvkn3TlemJWGkTbqYwU11pXVleMoF6NsfgYl7S4RmARpwPDZ',
-  'SkUKgSgOStzUXCmeBvkn3aqtBxrEEIdCtt0N48AgX1I',
-  'SkUKgSgOStzUXCmeBvkn3edfMzSwzYwlgV2YnDJmRqVUlQ3b0FAoTjFbW05vHNU7',
-  'SkUKgSgOStzUXCmeBvkn3dnLMST1lEoUlfkyL5n3Z5ZjDsvK_-agN_DxKWoBAaaS',
 ];
 
 !(async () => {
