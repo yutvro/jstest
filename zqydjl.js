@@ -1,7 +1,7 @@
 const $ = new Env("测试");
 //require("./md5.js") 
 //const COOKIE = $.isNode() ? require("./dsjCOOKIE") : ``;
-const zqtoken={
+var zqtoken={
 	"token":"token1&token2",
 	"uid":"你的uid1&你的uid2"	
 }
@@ -10,7 +10,16 @@ let tokenArr=[],uidArr=[];
 let tokenVals="",uidVals="";
 
 
+
 !(async () => {
+	let zqtoken= $.isNode() ? (process.env.zqtoken ? process.env.zqtoken : "") : ($.getdata('zqtoken') ? $.getdata('zqtoken') : "")
+	if (zqtoken) {
+		zqtoken=JSON.parse(zqtoken)
+	}
+	else{
+		$.log("请先设置token");
+		$.done();
+	}
 	let tokenVal = zqtoken.token;
 	let uidVal = zqtoken.uid;
 
