@@ -12,7 +12,7 @@ let tokenVals="",uidVals="";
 
 
 !(async () => {
-	let zqtoken= $.isNode() ? (process.env.zqtoken ? process.env.zqtoken : "") : ($.getdata('zqtoken') ? $.getdata('zqtoken') : "")
+	zqtoken= $.isNode() ? (process.env.zqtoken ? process.env.zqtoken : "") : ($.getdata('zqtoken') ? $.getdata('zqtoken') : "")
 	if (zqtoken) {
 		zqtoken=JSON.parse(zqtoken)
 	}
