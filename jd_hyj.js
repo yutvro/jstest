@@ -336,7 +336,7 @@ function travel_getTaskDetail() {
                         if (data.code === 0) {
                             if (data.data && data['data']['bizCode'] === 0) {
                                 if (data.data.result.inviteId == null) {
-                                    console.log("黑号")
+                                    console.log("黑号 或任务完成 助力完毕")
                                     resolve("")
                                 }else{
 										inviteId.push(data.data.result.inviteId)
