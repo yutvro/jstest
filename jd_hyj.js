@@ -338,8 +338,11 @@ function travel_getTaskDetail() {
                                 if (data.data.result.inviteId == null) {
                                     console.log("黑号")
                                     resolve("")
-                                }
-                                inviteId.push(data.data.result.inviteId)
+                                }else{
+										inviteId.push(data.data.result.inviteId)
+											console.log(inviteId)
+									}
+                                
                                 resolve(data.data.result)
                             }
                         } else {
