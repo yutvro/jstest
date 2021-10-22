@@ -23,7 +23,16 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 let inviteCodes = [
-    
+    'ZXASTT0225KkcRx8Rp1XXIBLwxqIOIgFjRWn6u7zB55awQ',
+	'ZXASTT0225KkcRktIoVaDIBL0wPZZdQFjRWn6u7zB55awQ',
+	'ZXASTT0225KkcRkgdoFzUdkzywaIPJQFjRWn6u7zB55awQ',
+	'ZXASTT0114aEsBktEpBwFjRWn6u7zB55awQ',
+	'ZXASTT0225KkcRhoe8QDVIkvxlfcOdQFjRWn6u7zB55awQ',
+	'ZXASTT016aFf3lZC7Idxn9rdlFjRWn6u7zB55awQ',
+	'ZXASTT011z6MgHwNdpAoFjRWn6u7zB55awQ',
+	'ZXASTT0225KkcRk8cpADTcUv0l_FeJQFjRWn6u7zB55awQ',
+	'ZXASTT0225KkcRB4eoVXVck-mwqECcAFjRWn6u7zB55awQ',
+	'ZXASTT0225KkcRxgc8geBcU6hnaVZIQFjRWn6u7zB55awQ',
 ]
 $.shareCodesArr = [];
 
@@ -42,7 +51,7 @@ $.shareCodesArr = [];
             await getUA()
         }
     }
-    for (let i = 0; i < cookiesArr.length; i++) {
+    for (let i = 6; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
             cookie = cookiesArr[i];
             $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
