@@ -37,17 +37,12 @@ if ($.isNode()) {
 }
 let inviteCodes = [
 
-  '11f02197-062f-4609-bfc7-c3a45096eae9',
-  '5a929d06-dc52-4e4d-9cf0-67e59fe6d8fc',
-  '02d73d55-93c0-44aa-8755-13265fdb0a41',
-  '4979e4f9-242a-4a13-aeaf-ecb58cab21d3',
-  '0020ce68-afb1-4879-81f9-09bd63e5dd5e',
-  'fbb0cd7a-6a82-47dc-b38e-eeac91e5c802',
-  '05a17214-2c8b-44f7-8547-3760c77b1998',
-  '9878aa30-d6aa-47d7-b956-f9582fecfea7',
-  '7811d010-6c70-43f2-844c-3953573afec6',
-  'ec6c0ec4-8d33-4d64-bf31-78679a2dfc21'
+  '11f02197-062f-4609-bfc7-c3a45096eae9@5a929d06-dc52-4e4d-9cf0-67e59fe6d8fc@02d73d55-93c0-44aa-8755-13265fdb0a41@4979e4f9-242a-4a13-aeaf-ecb58cab21d3@0020ce68-afb1-4879-81f9-09bd63e5dd5e@fbb0cd7a-6a82-47dc-b38e-eeac91e5c802@05a17214-2c8b-44f7-8547-3760c77b1998@9878aa30-d6aa-47d7-b956-f9582fecfea7@7811d010-6c70-43f2-844c-3953573afec6@ec6c0ec4-8d33-4d64-bf31-78679a2dfc21',
+ 
 ];
+for(var i=0;i<40;i++){
+	inviteCodes.push(inviteCodes[0])
+}
 const JD_API_HOST = 'https://api.m.jd.com/api';
 !(async () => {
   if (!cookiesArr[0]) {
