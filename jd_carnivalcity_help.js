@@ -7,11 +7,11 @@
 ===================quantumultx================
 [task_local]
 #京东手机狂欢城助力
-10 0,8 * * * https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_carnivalcity_help.js, tag=京东手机狂欢城助力, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+10 12,18 * * * https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_carnivalcity_help.js, tag=京东手机狂欢城助力, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
 =====================Loon================
 [Script]
-cron "10 0,8 * * *" script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_carnivalcity_help.js, tag=京东手机狂欢城助力
+cron "10 12,18 * * *" script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_carnivalcity_help.js, tag=京东手机狂欢城助力
 
 ====================Surge================
 京东手机狂欢城助力 = type=cron,cronexp=10 0,8 * * *,wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_carnivalcity_help.js
@@ -35,7 +35,19 @@ if ($.isNode()) {
 } else {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
-let inviteCodes = [];
+let inviteCodes = [
+
+  '11f02197-062f-4609-bfc7-c3a45096eae9',
+  '5a929d06-dc52-4e4d-9cf0-67e59fe6d8fc',
+  '02d73d55-93c0-44aa-8755-13265fdb0a41',
+  '4979e4f9-242a-4a13-aeaf-ecb58cab21d3',
+  '0020ce68-afb1-4879-81f9-09bd63e5dd5e',
+  'fbb0cd7a-6a82-47dc-b38e-eeac91e5c802',
+  '05a17214-2c8b-44f7-8547-3760c77b1998',
+  '9878aa30-d6aa-47d7-b956-f9582fecfea7',
+  '7811d010-6c70-43f2-844c-3953573afec6',
+  'ec6c0ec4-8d33-4d64-bf31-78679a2dfc21'
+]];
 const JD_API_HOST = 'https://api.m.jd.com/api';
 !(async () => {
   if (!cookiesArr[0]) {
