@@ -241,7 +241,7 @@ function getHelp() {
             console.log(`获取邀请码失败：${JSON.stringify(data)}`);
             if (data.code === 1002) $.blockAccount = true;
           }
-		  console.log(abc)
+		  console.log(abc.join("@"))
         }
       } catch (e) {
         $.logErr(e, resp)
