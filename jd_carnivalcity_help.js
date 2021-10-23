@@ -47,7 +47,7 @@ let inviteCodes = [
   '9878aa30-d6aa-47d7-b956-f9582fecfea7',
   '7811d010-6c70-43f2-844c-3953573afec6',
   'ec6c0ec4-8d33-4d64-bf31-78679a2dfc21'
-]];
+];
 const JD_API_HOST = 'https://api.m.jd.com/api';
 !(async () => {
   if (!cookiesArr[0]) {
