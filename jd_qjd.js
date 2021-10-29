@@ -40,7 +40,7 @@ let autoCodeList = []
         }
         autoCodeList = getRandomArrayElements(res,len);
     }else{
-        autoCodeList = [];
+        autoCodeList = [{"id":"5C4D67FD544E326CB40BE27948719EB5","value":"903689846505627648"},{"id":"D6EDB878775DF803513F00F30DDE6E22","value":"903689848107327488"},{"id":"2293269FB42217A09A186CD6A88153FB","value":"903689849676914688"},{"id":"6A70E1CD46B6D2F3E2E976D969C76FD5AD1DAAB9A3E3F6CBAFDE81EEB7393333","value":"903689851227758592"}];
     }
     for (let i = 0; i < cookiesArr.length/3; i++) {
         let index = i + 1;
