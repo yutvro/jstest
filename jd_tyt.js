@@ -22,7 +22,8 @@ let tytpacketId = '';
 if (process.env.tytpacketId) {
     tytpacketId = process.env.tytpacketId;
 }
-if ($.isNode()) {
+console.log()
+if ($.isNode(tytpacketId)) {
     Object.keys(jdCookieNode).forEach((item) => {
         cookiesArr.push(jdCookieNode[item])
     })
