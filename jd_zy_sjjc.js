@@ -21,7 +21,7 @@ cookiesArr = []
 CodeArr = []
 cookie = ''
 var quizId = "",shareId = "",jump = ""
-var brandlistArr = [],shareidArr = []
+var brandlistArr = [],shareidArr = ["5d211dea-b786-4caa-86c2-b9e112b35674","97565a77-516a-4d14-9dcd-37d137d71fcf","1d74c90f-07fd-451a-a8bc-f4db29617a02","35bd967b-5c98-4d71-beca-041d2f0524f4","8abc6ae3-362b-4873-919d-e6ed9d9318ef","524dc2c9-190c-4865-a4a8-3d1a812d63cf"]
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
