@@ -51,7 +51,7 @@ if ($.isNode()) {
     }
     shareCodes = shareCodes.filter(code => code)
     const author = Math.random() > 0.5 ? 'shufflewzc' : 'shufflewzc'
-    await getShareCode('nnfls.json',author,3,true)
+   // await getShareCode('nnfls.json',author,3,true)
     shareCodes = [...new Set([...shareCodes, ...($.shareCode || [])])];
     if (shareCodes.length > 0) {
         console.log(`\n开始互助\n`);
@@ -69,6 +69,7 @@ if ($.isNode()) {
             await $.wait(1000);
         }
     }
+	console.log(shareCodes)
     console.log(`\再次抽奖\n`);
     for (let i = 0; i < cookiesArr.length; i++) {
         $.cookie = cookiesArr[i];
