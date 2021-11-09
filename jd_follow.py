@@ -291,7 +291,7 @@ def nowtime():
 if PUSH_PLUS_TOKEN:
     notify_mode.append('pushplus')
 if TG_BOT_TOKEN and TG_USER_ID:
-    notify_mode.append('telegram_bot')
+    #notify_mode.append('telegram_bot')
 if BARK:
     notify_mode.append('bark')
 if QYWX_AM:
