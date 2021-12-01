@@ -22,7 +22,7 @@ cron "0 7,19 * * *" script-path=jd_speed_sign.js,tag=京东极速版
 ============小火箭=========
 京东极速版 = type=cron,script-path=jd_speed_sign.js, cronexpr="0 7,19 * * *", timeout=33600, enable=true
 */
-const { getCookie } = require('./jdCookie');
+const getCookie = require('./jdCookie.js');
 const $ = new Env('京东极速版');
 const JD_API_HOST = 'https://api.m.jd.com/',
     actCode = 'visa-card-001';
@@ -30,13 +30,12 @@ let cookiesArr = [],
     cookie = '',
     message;
 
-
+console.log(getCookie)
 !(async () => {
-    let cks = await getCookie();
-	for (let i = 0; i < cks.length; i++) {
-		const element = cks[i];
-		cookiesArr.push(element.value);
-	}
+    let cks = getCookie;
+	Object.keys(cks).forEach((item) => {
+    cookiesArr.push(cks[item])
+  })
 
     if (!cookiesArr[0]) {
         $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { 'open-url': 'https://bean.m.jd.com/bean/signIndex.action' });
