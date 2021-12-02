@@ -33,7 +33,7 @@ if ($.isNode()) {
     authorCodeList = await getAuthorCodeList('https://gitee.com/fatelight/code/raw/master/lzdz1_league.json')
     if($.getAuthorCodeListerr === false){
         authorCodeList = [
-            '6579dde1e3b34091baecb2cd4381786f',
+            '7c2bf3f8fc774d3eaa028a79deb9dcc6',
         ]
     }
     for (let i = 0; i < cookiesArr.length; i++) {
