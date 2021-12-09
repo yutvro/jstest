@@ -47,7 +47,7 @@ if ($.isNode()) {
             $.ADID = getUUID('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 1);
             $.UUID = getUUID('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
             authorCodeList = [
-                'fuMB6t0LHdtq7Dc8pm+TwF4tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
+                'D9mcWgs0o4QqObaT2iGctVs/ye9oluZX4nOTK56TeMXbR7I2OlzZch4hTs22oCUS',
                 // 'nYXy96GqoNLmoZYWMzThH14tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
                 // 'NIIGH1E3ihp+jukMM7UfkV4tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
                 // 'gHLldBJLPdovONAzAjPTUMjNhNaYFy2HteErE6izlhTf9nrGY7gBkCdGU4C6z/xD',
