@@ -78,7 +78,7 @@ if ($.isNode()) {
     await $.wait(1000)
     res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/wish.json')
   }
-  $.shareCode = [...$.shareCode, ...(res || [])]
+  //$.shareCode = [...$.shareCode, ...(res || [])]
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
@@ -206,6 +206,7 @@ async function healthyDay_getHomeData(type = true) {
                       })
                     }
                   }
+				  console.log($.shareCode)
                 } else {
                   console.log(`【${vo.taskName}】已完成\n`)
                 }
