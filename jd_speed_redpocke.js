@@ -28,7 +28,7 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let cookiesArr = [], cookie = '', message;
 const linkIdArr = ["7ya6o83WSbNhrbYJqsMfFA"];
-const signLinkId = '9WA12jYGulArzWS7vcrwhw';
+const signLinkId = '7ya6o83WSbNhrbYJqsMfFA';
 let linkId;
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -395,8 +395,8 @@ function cashOut(id,poolBaseId,prizeGroupId,prizeBaseId,) {
 
 function invite2() {
   let inviterIdArr = [
-    "5V7vHE23qh2EkdBHXRFDuA==",
-    "wXX9SjXOdYMWe5Ru/1+x9A=="
+    "9GDjSu7w7j7dgHoai8-TLw",
+    "Z0qecRq3mNfmoDe_qwpUHg"
   ]
   let inviterId = inviterIdArr[Math.floor((Math.random() * inviterIdArr.length))]
   let options = {
