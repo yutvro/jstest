@@ -49,7 +49,7 @@ async function start(KEY) {
     // 执行
     await exec("node iQIYI-bak.js >> result.txt");
     console.log('执行完毕')
-    const path = "./result.txt";
+    const path = "./result1.txt";
     let content = "";
     if (fs.existsSync(path)) {
         content = fs.readFileSync(path, "utf8");
