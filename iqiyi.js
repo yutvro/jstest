@@ -47,7 +47,7 @@ async function start(KEY) {
     await changeFiele();
     console.log('替换变量完毕')
     // 执行
-    await exec("node iQIYI-bak.js >> result.txt");
+    await exec("node iQIYI-bak.js >> result1.txt");
     console.log('执行完毕')
     const path = "./result1.txt";
     let content = "";
