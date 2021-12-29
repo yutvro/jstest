@@ -62,12 +62,8 @@ async function start() {
         content = fs.readFileSync(path, "utf8");
     }
 
-    if (content.includes("签到成功") | content.includes("已签到")) {
-        console.log("电信签到-" + content)
-    }else{
         await notify.sendNotify("中国电信签到-" + timeFormat(UTC8), content);
         console.log("中国电信签到-" + content)
-    }
 
     //运行完成后，删除下载的文件
     console.log('运行完成后，删除下载的文件\n')
