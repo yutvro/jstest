@@ -20,7 +20,7 @@ async function downFile () {
 
 async function changeFiele () {
     let content = await fs.readFileSync('./iQIYI-bak.js', 'utf8')
-    content = content.replace(/var cookie = ''/, `var cookie = '${KEY}'`)
+    content = content.replace(/var cookie = '(.*?)'/, `var cookie = '${KEY}'`)
     await fs.writeFileSync( './iQIYI-bak.js', content, 'utf8')
 }
 
@@ -71,7 +71,8 @@ async function start(KEY) {
 
     //运行完成后，删除下载的文件
     console.log('运行完成后，删除下载的文件\n')
-   // await deleteFile(path);
+
+    await deleteFile(path);
 }
 
 start(KEY)
