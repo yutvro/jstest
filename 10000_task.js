@@ -54,9 +54,9 @@ async function start() {
     await changeFiele();
     console.log('替换变量完毕')
     // 执行
-    await exec("node 10000.js >> result.txt");
+    await exec("node 10000.js >> result2.txt");
     console.log('执行完毕')
-    const path = "./result.txt";
+    const path = "./result2.txt";
     let content = "";
     if (fs.existsSync(path)) {
         content = fs.readFileSync(path, "utf8");
