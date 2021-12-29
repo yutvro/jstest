@@ -8,7 +8,7 @@ const download = require('download')
 const $ = new Env('爱奇艺会员签到');
 const notify = $.isNode() ? require('./sendNotify') : '';
 // 公共变量
-var KEY = 'fcblJg3p7dPsqp6Uqm3WqUsQjHLNCevkdekW3Z68Jm3uaOCVCyDUFGPCZ7Wq9rQjjgwPe6';
+var KEY = process.env.iQIYI_COOKIE;
 
 const SEND_KEY = process.env.SEND_KEY
 const UTC8 = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000;
