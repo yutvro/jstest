@@ -10,7 +10,7 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 // 公共变量
 var KEY = process.env.iQIYI_COOKIE;
 
-const SEND_KEY = process.env.SEND_KEY
+const SEND_KEY = 1
 const UTC8 = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000;
 
 async function downFile () {
