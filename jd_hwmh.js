@@ -189,6 +189,7 @@ async function run() {
         console.log('账号1获取不到[friendPin]退出执行，请重新执行')
         return
       }
+		console.log($.shareArr)
       if(toFriend == 1 && $.index !== 1) updatefriend(friendPin,1)
       if($.index === 1) updatefriend(friendPin,0)
     }
