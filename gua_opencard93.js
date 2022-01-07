@@ -37,8 +37,8 @@ cron:30 1 6-31/2,31 1 *
 30 1 6-31/2,31 1 * https://raw.githubusercontent.com/smiek2121/scripts/master/gua_opencard93.js, tag=1.6～1.31 会员狂欢日, enabled=true
 
 */
-let guaopencard_addSku = "false"
-let guaopencard = "false"
+let guaopencard_addSku = "true"
+let guaopencard = "true"
 let guaopenwait = "0"
 let guaopencard_draw = "0"
 

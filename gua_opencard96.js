@@ -29,7 +29,7 @@ cron:30 13 1-31/5,31 1,2 *
 30 13 1-31/5,31 1,2 * https://raw.githubusercontent.com/smiek2121/scripts/master/gua_opencard96.js, tag=1.1~2.10 大牌集结 入会有礼, enabled=true
 
 */
-let guaopencard = "false"
+let guaopencard = "true"
 let guaopenwait = "0"
 
 const $ = new Env('1.1~2.10 大牌集结 入会有礼');
