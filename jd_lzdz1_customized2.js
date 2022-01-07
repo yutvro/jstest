@@ -32,7 +32,7 @@ if ($.isNode()) {
     authorCodeList = await getAuthorCodeList('https://gitee.com/fatelight/code/raw/master/lzdz1.json')
     if($.getAuthorCodeListerr === false){
         authorCodeList = [
-            'a98348e17928460fb2e40a29a08eabcf',
+            '4ace0bbee2b74f879902097f2a5b79ad',
         ]
     }
     // console.log(authorCodeList)
