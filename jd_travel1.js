@@ -317,7 +317,7 @@ async function doAppTask() {
                 code: inviteId
             })
             helpPinArr.push($.UserName);
-				console.log(helpCodeArr)
+				//console.log(helpCodeArr)
         }
     }
     
