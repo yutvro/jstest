@@ -241,7 +241,7 @@ async function travel() {
    
 
     try {
-        await raise(true)
+       // await raise(true)
     } catch (e) {
         console.log(e)
     }
