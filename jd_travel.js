@@ -322,7 +322,7 @@ async function doAppTask() {
                 code: inviteId
             })
             helpPinArr.push($.UserName);
-				console.log(helpPinArr)
+				console.log(helpCodeArr)
         }
     }
     for (const { times, badgeAwardVos } of lotteryTaskVos || []) {
