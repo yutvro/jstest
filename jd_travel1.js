@@ -1,9 +1,9 @@
 /*
 TG https://t.me/aaron_scriptsG
 被内鬼偷给柠檬了,大家一起玩吧
-2 0,6-23/2 * * * jd_travel.js
+2 0,6-23/2 * * * jd_travel1.js
 */
-const $ = new Env('炸年兽');
+const $ = new Env('炸年兽1');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 let cookiesArr = [], cookie = '', message, helpCodeArr = [{
