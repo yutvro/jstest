@@ -321,7 +321,8 @@ async function doAppTask() {
                 pin: $.UserName,
                 code: inviteId
             })
-            helpPinArr.push($.UserName)
+            helpPinArr.push($.UserName);
+				console.log(helpPinArr)
         }
     }
     for (const { times, badgeAwardVos } of lotteryTaskVos || []) {
