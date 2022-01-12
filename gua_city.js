@@ -378,9 +378,9 @@ function shareCodesFormat() {
         $.newShareCodes = $.shareCodesArr[$.index - 1].split('@');
       }
     }
-    if($.index == 1) $.newShareCodes = [...inviteCodes,...$.newShareCodes]
+    $.newShareCodes = [...inviteCodes,...$.newShareCodes]
     try{
-      
+     
     } catch (e) {
       console.log(e);
     }
