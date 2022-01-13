@@ -32,7 +32,7 @@ cron:30 3 13-20/3 1 *
 ============Quantumultx===============
 [task_local]
 #1.13~1.20 瓜分千万京豆 免费抽大奖
-30 3 13-20/3 1 * https://raw.githubusercontent.com/smiek2121/scripts/master/gua_opencard102.js, tag=1.13~1.20 瓜分千万京豆 免费抽大奖, enabled=true
+30 3,14 13-20/3 1 * https://raw.githubusercontent.com/smiek2121/scripts/master/gua_opencard102.js, tag=1.13~1.20 瓜分千万京豆 免费抽大奖, enabled=true
 
 */
 let guaopencard_addSku = "true"
