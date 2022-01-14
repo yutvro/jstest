@@ -41,7 +41,7 @@ cron:30 4 14-21/3 1 *
 let guaopencard_addSku = "true"
 let guaopencard = "true"
 let guaopenwait = "0"
-let guaopencard_draw = "0"
+let guaopencard_draw = "3"
 
 const $ = new Env('1.14~1.21 超级年货节 惊喜不打烊');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
