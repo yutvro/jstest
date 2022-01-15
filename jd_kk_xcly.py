@@ -55,7 +55,7 @@ activityshopid='1000004123'
 jdActivityId='10713953'
 random_num = '8655764'
 
-master_shareUuid = '4ef5a0ee24ee499844bbc176bd10951'
+master_shareUuid = '4ef5a0ee24ee4909844bbc176bd10951'
 master_shareuserid4minipg = 'wqdHuFdMJj0bcG7ysk0r8mwklxRrP5C78lmKjh9Mn4avAmNuF4i+OHS9NlRdtagP'
 
 # url
