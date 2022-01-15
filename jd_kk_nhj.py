@@ -646,7 +646,7 @@ def start():
         exit(0)
     printf(f"开始：【{hdtitle}】")
     one_name = '仅账号一作者 Curtin，其他全部助力账号一'
-    one_shareUuid = code.split("&")[0]
+    one_shareUuid ="33df44d05fd54de391a30f8e6df273bf"
     one_shareuserid4minipg = code.split("&")[1]
     cookieList, nameList = getCk.iscookie()
     a = 1
