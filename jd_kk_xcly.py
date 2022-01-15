@@ -55,8 +55,8 @@ activityshopid='1000004123'
 jdActivityId='10713953'
 random_num = '8655764'
 
-master_shareUuid = ''
-master_shareuserid4minipg = ''
+master_shareUuid = '4ef5a0ee24ee4909844bbc176bd10951'
+master_shareuserid4minipg = 'wqdHuFdMJj0bcG7ysk0r8mwklxRrP5C78lmKjh9Mn4avAmNuF4i+OHS9NlRdtagP'
 
 # url
 main_host='https://lzdz1-isv.isvjcloud.com'
@@ -578,8 +578,8 @@ def start():
         exit(0)
     printf(f"开始：【{hdtitle}】")
     one_name = '仅账号一助力 Curtin，其他全部助力账号一'
-    one_shareUuid = code.split("&")[0]
-    one_shareuserid4minipg = code.split("&")[1]
+    one_shareUuid = master_shareUuid
+    one_shareuserid4minipg = master_shareuserid4minipg
     cookieList, nameList = getCk.iscookie()
     a = 1
     for ck, user in zip(cookieList, nameList):
