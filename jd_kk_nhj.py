@@ -56,8 +56,8 @@ activityshopid='1000001195'
 jdActivityId='10713953'
 random_num = '3293765'
 
-master_shareUuid = '33df44d05fd54de391a30f8e6df273bf'
-master_shareuserid4minipg = 'wqdHuFdMJj0bcG7ysk0r8mwklxRrP5C78lmKjh9Mn4avAmNuF4i+OHS9NlRdtagP'
+master_shareUuid = ''
+master_shareuserid4minipg = ''
 
 # url
 main_host='https://lzdz1-isv.isvjcloud.com'
@@ -646,14 +646,14 @@ def start():
         exit(0)
     printf(f"开始：【{hdtitle}】")
     one_name = '仅账号一作者 Curtin，其他全部助力账号一'
-    one_shareUuid ="33df44d05fd54de391a30f8e6df273bf"
+    one_shareUuid = code.split("&")[0]
     one_shareuserid4minipg = code.split("&")[1]
     cookieList, nameList = getCk.iscookie()
     a = 1
     for ck, user in zip(cookieList, nameList):
         try:
             printf(f"##☺️账号{a}[{user}]，您好!")
-            printf(f"\t└助力：[{one_name}] 助力码：{one_shareUuid} {one_shareuserid4minipg}")
+            printf(f"\t└助力：[{one_name}] 助力码：{one_shareUuid}")
             try:
                 cookie = buildheaders(ck, one_shareUuid, one_shareuserid4minipg)
                 wait_time(1, 1)
