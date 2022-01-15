@@ -653,7 +653,7 @@ def start():
     for ck, user in zip(cookieList, nameList):
         try:
             printf(f"##☺️账号{a}[{user}]，您好!")
-            printf(f"\t└助力：[{one_name}] 助力码：{one_shareUuid}")
+            printf(f"\t└助力：[{one_name}] 助力码：{one_shareUuid} {one_shareuserid4minipg}")
             try:
                 cookie = buildheaders(ck, one_shareUuid, one_shareuserid4minipg)
                 wait_time(1, 1)
