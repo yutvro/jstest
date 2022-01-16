@@ -31,6 +31,7 @@ Object.keys(jdCookieNode).forEach((item) => {
         console.log('助力码：', res.data)
         await wait(1000)
         shareCodesSelf.push(res.data)
+console.log(shareCodesSelf)
         res = await api({ "apiMapping": "/api/task/support/list" })
         console.log('收到助力：', res.data.supportedNum)
         await wait(1000)
@@ -62,21 +63,11 @@ Object.keys(jdCookieNode).forEach((item) => {
         }
     }
     let authorCode = []
-    let res = await getAuthorShareCode('')
-    if (!res) {
-        res = await getAuthorShareCode('')
-    }
-    if (res) {
-        authorCode = res.sort(() => 0.5 - Math.random())
-        const limit = 3
-        if (authorCode.length > limit) {
-            authorCode = authorCode.splice(0, limit)
-        }
-    }
+    
     for (let i = 0; i < cookiesArr.length; i++) {
         cookie = cookiesArr[i]
         const userName = decodeURIComponent(cookie.match(/pt_pin=(.+?);/) && cookie.match(/pt_pin=(.+?);/)[1])
-        const pool = await getShareCodePool('tiger', 5)
+        const pool = []
         // if (shareCodesHW.length === 0) {
         //     shareCodesHW = await getshareCodeHW('tiger')
         // }
@@ -84,7 +75,7 @@ Object.keys(jdCookieNode).forEach((item) => {
         //     shareCodes = Array.from(new Set([...shareCodesHW, ...shareCodesSelf, ...temp])) :
         //     shareCodes = Array.from(new Set([...shareCodesSelf, ...shareCodesHW, ...temp]))
         shareCodes = Array.from(new Set([...shareCodesSelf, ...authorCode, ...pool]))
-        // console.log(shareCodes)
+         console.log(shareCodes)
         for (let code of shareCodes) {
             console.log(`账号${i + 1} 去助力 ${code} ${shareCodesSelf.includes(code) ? '(内部)' : ''}`)
             const res = await api({ "shareId": code, "apiMapping": "/api/task/support/doSupport" })
