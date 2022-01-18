@@ -7,7 +7,11 @@ const $ = new Env("京东超市年货日历");
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let cookiesArr = [], cookie = '';
-$.shareCodes = [];
+$.shareCodes = [{ code: '61e61c325f41263517', user: '18014246678_p' },
+  { code: '61e61c6c3086c75334', user: 'jd_FdDjJBENiJzA' },
+  { code: '61e61ca7b56d996999', user: '18915299015_p' },
+  { code: '61e61ce34beec46770', user: 'jd_oKMcRZnuBXfM' },
+  { code: '61e61d1e9a44f54526', user: '269569205' }];
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {
         cookiesArr.push(jdCookieNode[item])
