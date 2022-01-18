@@ -135,6 +135,7 @@ async function main() {
                             code: $.code,
                             user: $.UserName
                         })
+								console.log($.shareCodes)
                     }
                 }
                 if ($.index === -1) {
