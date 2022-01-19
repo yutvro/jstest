@@ -140,6 +140,7 @@ async function doTask(){
                 'max':true,
                 'encryptAssignmentId':$.oneTask.encryptAssignmentId
             });
+			console.log( $.allInvite)
         } else if($.oneTask.assignmentType === 5) {
             let signList = $.oneTask.ext.sign2 || [];
             if (signList.length === 0) {
