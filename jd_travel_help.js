@@ -1,7 +1,7 @@
 /*
 TG https://t.me/aaron_scriptsG
 被内鬼偷给柠檬了,大家一起玩吧
-20 0,4,8,18 * * * jd_travel.js
+20 0,4,8,18 * * * jd_travel_help.js
 */
 const $ = new Env('炸年兽互助');
 const notify = $.isNode() ? require('./sendNotify') : '';
