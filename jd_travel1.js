@@ -243,7 +243,8 @@ async function team() {
         }
     }
     const { groupJoinInviteId, groupName, groupNum } = pkHomeData?.groupInfo || {}
-    if (groupName && groupNum !== undefined) console.log(`当前战队：${groupName}（${groupNum}）`)
+	
+    if (groupName && groupNum !== undefined) console.log(`当前战队：${groupName}（${groupNum}） ${groupJoinInviteId}`)
     if (groupNum > 1) {
         teamMap[groupName] = teamMap[groupName] || []
         teamMap[groupName].push($.UserName)
