@@ -48,6 +48,7 @@ if ($.isNode()) {
             }
         }
     }
+	console.log(helpCodeList)
     let otherCk = []
     cookiesArr = [...cookiesArr,...otherCk];
     cookiesArr = getRandomArrayElements(cookiesArr,cookiesArr.length);
