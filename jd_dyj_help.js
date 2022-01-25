@@ -38,6 +38,7 @@ let tools = []
           }
           tools.push({id: i, cookie: cookie})  
     }
+		  console.log(tools)
     while (helps.length && tools.length) {
           tool = tools.pop()
           cookie = tool.cookie
