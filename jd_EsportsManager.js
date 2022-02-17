@@ -11,7 +11,30 @@
 
 const $ = new Env('东东电竞经理');
 let cookiesArr = [], cookie = '', isBox = false, notify, newShareCodes, allMessage = '';
-let tasks = [], shareCodes = [], first = true;
+let tasks = [], shareCodes = [{
+    tid: 'T018v_VzQRob8VLRJxKb1ACjVfloaS5kRrbA',
+    uid: 'NrP-6bB7JnWTUM7ss27yiPD3MtEiyJ2Vc70VYIDlr2w'
+  },
+  {
+    tid: 'T0205KkcH2Vkpja9fl-G_KF3CjVfloaS5kRrbA',
+    uid: 'U6s02b_5LGPhanEiOWR1mBk_O91NeXWQlN6jHydUDlI'
+  },
+  {
+    tid: 'T0205KkcNkptry6lVWSt7r17CjVfloaS5kRrbA',
+    uid: 'W_lXYF3UohGvCpiESsy_2FNjbo0TyqGcxV6llFO8r8o'
+  },
+  {
+    tid: 'T012vPt6RRgQ91TSCjVfloaS5kRrbA',
+    uid: 'aZZW1h7l9Dz05JZdjlENW4E_BxGbfI5CFXkkyKvxMbU'
+  },
+  {
+    tid: 'T018v_V6QRsb_F3XIR-b1ACjVfloaS5kRrbA',
+    uid: 'xXWocS6ovW26raZmkTrg2qfBMgkm7lwJZnP-RCHRX_A'
+  },
+  {
+    tid: 'T0225KkcRB9K8lHVdhL0lP4JdACjVfloaS5kRrbA',
+    uid: 'TMuFIgjjThA9ym6Da8NYsJjhPaBbjxvjn6pl3DtePKE'
+  }], first = true;
 
 !(async () => {
     await requireConfig();
