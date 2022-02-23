@@ -35,7 +35,7 @@ const jdCookieNode = $.isNode() ? require("./jdCookie.js") : "";
 $.showLog = $.getdata("cfd_showLog") ? $.getdata("cfd_showLog") === "true" : false;
 $.notifyTime = $.getdata("cfd_notifyTime");
 $.result = [];
-$.shareCodes = [];
+$.shareCodes = ["F23226A0E168CB913AA69AAEFD2C5E67EC6F79D6B85A08A97BF1174576C6931A"];
 let cookiesArr = [], cookie = '', token = '';
 let UA, UAInfo = {};
 const randomCount = $.isNode() ? 20 : 3;
