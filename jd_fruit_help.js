@@ -55,7 +55,6 @@ let shareCodes = [ // 这个列表填入你要助力的好友的shareCode
 ]
 let newShareCodes=['1a4a44dceefd441a98908c9f0b2250f7',
   '0787fab43daf4c469175500e873a7c1a',
-  '0787fab43daf4c469175500e873a7c1a',
   '4603f5156f1d418c80a24b1bc13acc15',
   'dcad4f20fee642faa6b3a311fef82fad',
   '137166710cff4398a67bb092fa279768',
