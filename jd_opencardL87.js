@@ -49,7 +49,7 @@ let activityCookie =''
     return;
   }
   $.activityId = "dz220221100001616201shop"
-  $.shareUuid = "9b9f0f8c5b474d06a915bec303a4495e"
+  $.shareUuid = "fff2bda8d34049d4a535a05569dc9034"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/shop/league/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
 
   for (let i = 0; i < cookiesArr.length; i++) {
