@@ -41,12 +41,10 @@ let activityCookie =''
     return;
   }
   $.activityId = "unionkbblnt20220222dzlhkk"
-  authorCodeList = await getAuthorCodeList('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/opencard90.json')
-    if(authorCodeList === '404: Not Found'){
+ 
         authorCodeList = [
-            '3174e68bf8a14620982b70193cce7e9c',
+            '3efb87f71e404866a0cfedebdb01167d',
         ]
-    }
   $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
