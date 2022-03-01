@@ -8,7 +8,7 @@
 const $ = new Env('粉丝互动');
 const notify = $.isNode() ? require('./sendNotify') : '';
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-const RUHUI = $.isNode() ? (process.env.RUHUI ? process.env.RUHUI : `888`):`888`;
+const RUHUI = 1;
 const RUNCK = $.isNode() ? (process.env.RUNCK ? process.env.RUNCK : `9999`):`9999`;
 let cookiesArr = [],message = '';
 if ($.isNode()) {
