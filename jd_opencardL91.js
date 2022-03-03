@@ -51,11 +51,10 @@ let activityCookie =''
     return;
   }
   $.activityId = "dz3438d88c47209a29355c6192b127"
- 
+  
         authorCodeList = [
             '81676c9379c444beb2058018023b7c30',
         ]
-   
   $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/fashion/union/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -294,8 +293,8 @@ async function takePostRequest(type) {
           taskType = 12
           taskValue = $.toShopValue || 74956 
         }else if(type == 'addSku'){
-          taskType = 2
-          taskValue = $.addSkuValue || 2
+          taskType = 21
+          taskValue = $.addSkuValue || 21
         }else if(type == 'toMainActive'){
           taskType = 12
           taskValue = 3
