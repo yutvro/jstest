@@ -152,9 +152,10 @@ function shareCodesFormat() {
 //助力好友
 async function doHelp() {
 
-  console.log(`\n【开始账号内互助】\n`);
-  $.newShareCode = [newShareCodes,...(jdPlantBeanShareArr || [])]
-  
+  console.log(`\n【开始账号内互助】--\n`);
+ 
+  $.newShareCode = [...newShareCodes,...(jdPlantBeanShareArr || [])]
+  // console.log($.newShareCode)
   for (let plantUuid of $.newShareCode) {
     console.log(`【${$.UserName}】开始助力: ${plantUuid}`);
     if (!plantUuid) continue;
