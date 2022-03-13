@@ -50,7 +50,7 @@ $.appId = "e395f"
   }
   //let res = await getAuthorShareCode('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/jxlhb.json')
   //if (res && res.activeId) $.activeId = res.activeId;
-  $.authorMyShareIds = [...((res && res.codes) || [])];
+ // $.authorMyShareIds = [...((res && res.codes) || [])];
   $.CryptoJS = $.isNode() ? require('crypto-js') : CryptoJS;
   await requestAlgo()
   await $.wait(1000)
