@@ -32,7 +32,7 @@ cron:30 1 16-31/3 3 *
 30 1 16-31/3 3 * https://raw.githubusercontent.com/smiek2121/scripts/master/gua_opencard118.js, tag=海蓝之谜邀请入会有礼, enabled=true
 
 */
-let guaopencard = "false"
+let guaopencard = "true"
 let guaopenwait = "0"
 
 const $ = new Env('海蓝之谜邀请入会有礼');
