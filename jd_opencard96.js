@@ -20,7 +20,7 @@ cron:30 2 16-31 3 *
 ============Quantumultx===============
 [task_local]
 #海蓝之谜邀请入会有礼
-30 2 16-31 3 * jd_opencard96.js, tag=海蓝之谜邀请入会有礼, enabled=true
+30 2,15 16-31 3 * jd_opencard96.js, tag=海蓝之谜邀请入会有礼, enabled=true
 
 */
 
@@ -162,7 +162,7 @@ async function run() {
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
     if($.index == 1){
-      $.shareUuid = $.actorUuid
+      $.shareUuid = '5f2710f79b5c43ca96903140833be49c'
       console.log(`后面的号都会助力:${$.shareUuid}`)
     }
       if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
