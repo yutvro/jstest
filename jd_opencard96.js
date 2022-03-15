@@ -16,11 +16,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:30 2 16-31 3 *
+cron:30 2,17 16-31 3 *
 ============Quantumultx===============
 [task_local]
 #海蓝之谜邀请入会有礼
-30 2,15 16-31 3 * jd_opencard96.js, tag=海蓝之谜邀请入会有礼, enabled=true
+30 2,17 16-31 3 * jd_opencard96.js, tag=海蓝之谜邀请入会有礼, enabled=true
 
 */
 
