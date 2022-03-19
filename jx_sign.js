@@ -245,6 +245,7 @@ function signhb(type = 1) {
                   'max': max,
                   'domax': domax
                 })
+				console.log($.shareCodes)
               }
               break
             case 2:
