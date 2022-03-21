@@ -17,7 +17,7 @@ cron:55 3,16 21-27 3 *
 ============Quantumultx===============
 [task_local]
 #3.21-3.27 春日风尚 入会焕新
-55 3,16 21-27 3 * jd_opencardL99.js, tag=3.21-3.27 春日风尚 入会焕新, enabled=true
+55 3,16,21 21-27 3 * jd_opencardL99.js, tag=3.21-3.27 春日风尚 入会焕新, enabled=true
 
 */
 const $ = new Env("3.21-3.27 春日风尚 入会焕新");
@@ -47,12 +47,11 @@ if ($.isNode()) {
         $.msg($.name, "【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取", "https://bean.m.jd.com/bean/signIndex.action", { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
         return;
     }
-  authorCodeList = await getAuthorCodeList('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/opencard99.json')
-  if ($.getAuthorCodeListerr === false) {
+
       authorCodeList = [
-          'ee9c70d1abca4b1ab21ec1ed0a51dcb9',
+          'c5fe05ec9ed245dc80a364cf7e4dc6b1',
       ]
-  }
+  
     for (let i = 0; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
             cookie = cookiesArr[i];
