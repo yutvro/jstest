@@ -10,11 +10,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:55 4,13 22-31 3 *
+cron:55 4,13,21 22-31 3 *
 ============Quantumultx===============
 [task_local]
 #3.22-3.31大牌好礼 迎春季
-55 4,13 22-31 3 * jd_opencardL101.js, tag=3.22-3.31大牌好礼 迎春季, enabled=true
+55 4,13,21 22-31 3 * jd_opencardL101.js, tag=3.22-3.31大牌好礼 迎春季, enabled=true
 
 */
 
@@ -50,7 +50,7 @@ let cookies = []
     return;
   }
   $.activityId = "dzlhkk068d4d0ab8a1256853002f50"
-  $.shareUuid = "6d72da8993cf408fb283aa5f28a7547e"
+  $.shareUuid = "707f9baceda143b8add5bf0aadf73a55"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
@@ -211,7 +211,7 @@ async function run() {
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
     if($.index == 1){
-      $.shareUuid = $.actorUuid
+      $.shareUuid = '707f9baceda143b8add5bf0aadf73a55'
       console.log(`后面的号都会助力:${$.shareUuid}`)
     }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))

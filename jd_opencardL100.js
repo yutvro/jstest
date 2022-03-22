@@ -12,11 +12,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
   
-cron:30 6,19 21-31 3 *
+cron:30 4,13,21 21-31 3 *
 ============Quantumultx===============
 [task_local]
 #3.21~3.31 酒水会员盛典
-30 6,19 21-31 3 * jd_opencardL100.js, tag=3.21~3.31 酒水会员盛典, enabled=true
+30 4,13,21 21-31 3 * jd_opencardL100.js, tag=3.21~3.31 酒水会员盛典, enabled=true
 
 */
 
@@ -53,12 +53,11 @@ let cookies = []
   }
   
   $.activityId = "dz46b2dbbde1914438a47a994cc11c"
-  authorCodeList = await getAuthorCodeList('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/opencard100.json')
-    if(authorCodeList === '404: Not Found'){
+ 
         authorCodeList = [
-            '834105c76cb745b3b6153b4b39f42c42',
+            '47a1faa86b724025a5efb8bfb713020f',
         ]
-    }
+    
   $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/drinkcategory/piecetoge1/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
 
@@ -221,7 +220,7 @@ async function run() {
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
     if($.index == 1){
-      $.shareUuid = $.actorUuid
+      $.shareUuid ='47a1faa86b724025a5efb8bfb713020f'
       console.log(`后面的号都会助力:${$.shareUuid}`)
     }
     await $.wait(parseInt(Math.random() * 2000 + 5000, 10))
