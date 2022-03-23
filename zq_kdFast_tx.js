@@ -7,7 +7,7 @@ const jsname = '中青极速'
 const $ = Env(jsname)
 let logDebug = 0
 const notifyFlag = process.env.zqnotify || 1; 	//0为关闭通知，1为打开通知,默认为0
-const CryptoJS = require('./crypto-js')
+const CryptoJS = require('crypto-js')
 
 const notify = $.isNode() ? require('./sendNotify') : '';
 
