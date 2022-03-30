@@ -50,9 +50,9 @@ let cookies = []
     return;
   }
   $.activityId = "dzlhkkb306433997033e689d45c00a"
-  $.shareUuid = "9918b89a9e434ba9bc7a0b89129667aa"
+  $.shareUuid = "0c58f9e6f8244fe38e75f0122e0646e0"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["9918b89a9e434ba9bc7a0b89129667aa","adb9f64e8bba4c4d905eab809251c5da","492f0a4c7d33452b908d74aba7ed06c8"]
+  let shareUuidArr = ["0c58f9e6f8244fe38e75f0122e0646e0","abbdaba1422e4405bd3f70d6ad543de5","9fbb9aabaa9e4e8697b764f4b63d07f3"]
   let s = Math.floor((Math.random()*3))
   let n = 0
   n = Math.floor((Math.random()*shareUuidArr.length))
@@ -216,7 +216,7 @@ async function run() {
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
     if($.index == 1){
-      $.shareUuid = $.actorUuid
+      $.shareUuid = '0c58f9e6f8244fe38e75f0122e0646e0'
       console.log(`后面的号都会助力:${$.shareUuid}`)
     }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
