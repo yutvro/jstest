@@ -50,9 +50,9 @@ let shareUuidArr = []
     return;
   }
   $.activityId = "dzlhkk068d4d0ab8a1234853002f66"
-  $.shareUuid = "93ccb801940c499cbbd107460c77270b"
+  $.shareUuid = "2b9ea0e120034bcd956321934bd14808"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/mar2022/miFenJie/activity/563603?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["93ccb801940c499cbbd107460c77270b","0c234d16b24144da92e6e9645d7bfbf7","e2968aeebe214b588d1366aadf8b55bc"]
+  let shareUuidArr = ["2b9ea0e120034bcd956321934bd14808"]
   let s = Math.floor((Math.random()*3))
   let n = 0
   n = Math.floor((Math.random()*shareUuidArr.length))
@@ -190,7 +190,7 @@ async function run() {
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
     if($.index == 1){
-      $.shareUuid = $.actorUuid
+      $.shareUuid = '2b9ea0e120034bcd956321934bd14808'
       console.log(`后面的号都会助力:${$.shareUuid}`)
     }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
