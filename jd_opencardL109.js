@@ -10,15 +10,15 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:11 5,14 3-9 4 *
+cron:11 5,14,20 3-9 4 *
 ============Quantumultx===============
 [task_local]
 #4.3-4.9 我的新家 超级配
-11 5,14 3-9 4 * jd_opencardL109.js, tag=4.3-4.9 我的新家 超级配, enabled=true
+11 5,14,20 3-9 4 * jd_opencardL109.js, tag=4.3-4.9 我的新家 超级配, enabled=true
 
 
 */
-let opencard_toShop = "false"
+let opencard_toShop = "true"
 const $ = new Env('4.3-4.9 我的新家 超级配');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -52,9 +52,9 @@ let authorCodeList = []
     return;
   }
   $.activityId = "237efcbeaf2d11ecac4f020017000b7b"
-  $.shareUuid = "135b9101c9594b589c7467519a77c144"
+  $.shareUuid = "5f8d4fe7a8ea4552b1b09743106f3c6e"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["135b9101c9594b589c7467519a77c144","3e0b07d541774052906dcd7bb6ca33b4","c80cea13e5614ac68e8731150c50aea1"]
+  let shareUuidArr = ["5f8d4fe7a8ea4552b1b09743106f3c6e","ca2fe88705d54ad291d565918c7b69b2"]
   let s = Math.floor((Math.random()*3))
   let n = 0
   n = Math.floor((Math.random()*shareUuidArr.length))
@@ -237,7 +237,7 @@ async function run() {
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
     if($.index == 1){
-      $.shareUuid = $.actorUuid
+      $.shareUuid = '5f8d4fe7a8ea4552b1b09743106f3c6e'
       console.log(`后面的号都会助力:${$.shareUuid}`)
     }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
