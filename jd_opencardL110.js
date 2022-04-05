@@ -59,9 +59,9 @@ let activityCookie =''
     }
     $.joinStatus = false
     $.activityId = "2204100037674501"
-    $.shareUuid = "384b7efd0c46486e95af7ea7e41b73b2"
+    $.shareUuid = "ca161eb8356742668e661223295f7430"
     console.log(`入口:\nhttps://lzkjdz-isv.isvjcloud.com/esteelauder/inviteNew/activityPage?activityId=2204100037674501&inviterUuid=${$.shareUuid}`)
-	let shareUuidArr = ["62c7864239ac4729bbecd1fcaa920881","384b7efd0c46486e95af7ea7e41b73b2"]
+	let shareUuidArr = ["ca161eb8356742668e661223295f7430","3c0cdfe5e8a1496db8c58f9acfbee3e6"]
 	let s = Math.floor((Math.random()*2))
 	let n = 0
 	n = Math.floor((Math.random()*shareUuidArr.length))
@@ -187,7 +187,7 @@ async function run() {
         console.log($.actorUuid)
         console.log(`当前助力:${$.shareUuid}`)
         if ($.index == 1) {
-            $.shareUuid = $.actorUuid
+            $.shareUuid = 'ca161eb8356742668e661223295f7430'
             console.log(`后面的号都会助力:${$.shareUuid}`)
         }
         await $.wait(parseInt(Math.random() * 2000 + 5000, 10))
