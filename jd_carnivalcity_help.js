@@ -7,11 +7,11 @@
 ===================quantumultx================
 [task_local]
 #京东手机狂欢城助力
-10 0,8 * * * https://raw.githubusercontent.com/KingRan/KR/main/jd_carnivalcity_help.js, tag=京东手机狂欢城助力, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+10 0,8,17 * * * https://raw.githubusercontent.com/KingRan/KR/main/jd_carnivalcity_help.js, tag=京东手机狂欢城助力, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
 =====================Loon================
 [Script]
-cron "10 0,8 * * *" script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_carnivalcity_help.js, tag=京东手机狂欢城助力
+cron "10 0,8,17 * * *" script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_carnivalcity_help.js, tag=京东手机狂欢城助力
 
 ====================Surge================
 京东手机狂欢城助力 = type=cron,cronexp=10 0,8 * * *,wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_carnivalcity_help.js
@@ -26,7 +26,12 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message = '', allMessage = '';
 let isLoginInfo = {}, blockAccountInfo = {};
-$.shareCodes = [];
+$.shareCodes = [  '639b5bc792454f859ceb398c2b75e918',
+  '0d896b2ae98f46d89725d7503f5b3360',
+  '37dca5d3ec394b5eb17234792d6ee83b',
+  '687477f8807e4ebe92cccc877b458c6e',
+  '2fdf008889454703b82f8db399a22b8d',
+  'cf3fdfb3f89744a18585348f7fcb3b47'];
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
