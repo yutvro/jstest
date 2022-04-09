@@ -14,7 +14,7 @@ cron:34 23 8-15 4 *
 ============Quantumultx===============
 [task_local]
 #4.8-4.15 多重呵护力，春日欢迎洗
-34 23 8-15 4 * jd_opencardL113.js, tag=4.8-4.15 多重呵护力，春日欢迎洗, enabled=true
+34 17,23 8-15 4 * jd_opencardL113.js, tag=4.8-4.15 多重呵护力，春日欢迎洗, enabled=true
 
 
 */
@@ -50,9 +50,9 @@ let authorCodeList = []
     return;
   }
   $.activityId = "dz690f282607b5c03ea329yjkk1cwl"
-  $.shareUuid = "1f18950726ee46bb88c02f7ffe95fc80"
+  $.shareUuid = "e887312b586645ae8ec4e08a838e7be9"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["1f18950726ee46bb88c02f7ffe95fc80","7561deb9e2c647ccb7088cb008f39494","59425c1ec6b34b64a0c213f1028c35e7"]
+  let shareUuidArr = ["e887312b586645ae8ec4e08a838e7be9"]
   let s = Math.floor((Math.random()*3))
   let n = 0
   n = Math.floor((Math.random()*shareUuidArr.length))

@@ -16,7 +16,7 @@ cron:40 1,12 9-22 4 *
 ============Quantumultx===============
 [task_local]
 #4.8~4.22 早鸟派对好物来袭
-40 1,12 9-22 4 * jd_opencardL112.js, tag=4.8~4.22 早鸟派对好物来袭, enabled=true
+40 1,17,12 9-22 4 * jd_opencardL112.js, tag=4.8~4.22 早鸟派对好物来袭, enabled=true
 
 */
 
@@ -52,9 +52,9 @@ let activityCookie =''
     return;
   }
   $.activityId = "dz40c5c3a14fd59a0c47466d63f0c7"
-  $.shareUuid = "a2447e60dfef4e289b8041122ce3074a"
+  $.shareUuid = "c1621d4b3e884255bb59faa14c235812"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/april/springUnion2/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["a2447e60dfef4e289b8041122ce3074a","1c174c35de0d424c8a105284076c33dc","eacf08b15b62444b834145823629825d"]
+  let shareUuidArr = ["c1621d4b3e884255bb59faa14c235812"]
   let s = Math.floor((Math.random()*10))
   let n = 0
   n = Math.floor((Math.random()*shareUuidArr.length))
@@ -207,7 +207,7 @@ async function run() {
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
     if($.index == 1){
-      $.shareUuid = $.actorUuid
+      //$.shareUuid = $.actorUuid
       console.log(`后面的号都会助力:${$.shareUuid}`)
     }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
