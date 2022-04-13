@@ -50,9 +50,9 @@ let activityCookie =''
     return;
   }
   $.activityId = "dz39d46a394915bfa150a01f62shop"
-  $.shareUuid = "d8d54b6f0c79422499e2f22d84e670be"
+  $.shareUuid = "0fd48ba8a53c45d5889fe466d612c959"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/shop/league/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["d8d54b6f0c79422499e2f22d84e670be","daecb67cdf0642f5a9c526e5cbf4d9be","df7cfd939beb4d128fb6801dd6dcf8a1"]
+  let shareUuidArr = ["0fd48ba8a53c45d5889fe466d612c959"]
   let s = Math.floor((Math.random()*3))
   let n = 0
   n = Math.floor((Math.random()*shareUuidArr.length))
@@ -213,7 +213,7 @@ async function run() {
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
     if($.index == 1){
-      $.shareUuid = $.actorUuid
+     // $.shareUuid = $.actorUuid
       console.log(`后面的号都会助力:${$.shareUuid}`)
     }
       if($.index % 3 == 0) console.log('休息1分钟，别被黑ip了\n可持续发展')
