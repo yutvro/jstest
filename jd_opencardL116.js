@@ -11,11 +11,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:32 4,15 14-29 4 *
+cron:32 4,15,16 14-29 4 *
 ============Quantumultx===============
 [task_local]
 #4.13~4.29 早鸟焕春 大牌惠聚
-32 4,15 14-29 4 * jd_opencardL116.js, tag=4.13~4.29 早鸟焕春 大牌惠聚, enabled=true
+32 4,15,16 14-29 4 * jd_opencardL116.js, tag=4.13~4.29 早鸟焕春 大牌惠聚, enabled=true
 
 */
 
@@ -52,9 +52,9 @@ let activityCookie =''
     return;
   }
   $.activityId = "dz3fb7e0f64f21afa7ff66d3daf15b"
-  $.shareUuid = "8b45c8baa1d34db0a00f1516f45c77c2"
+  $.shareUuid = "a3ab4015098c4349b07ed17b743eb728"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/april/springUnion3/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["8b45c8baa1d34db0a00f1516f45c77c2","7464acb997d643cfaaeabcbc04cb0ecf","8694075fd96d487d9fdad4b8b4047802"]
+  let shareUuidArr = ["a3ab4015098c4349b07ed17b743eb728"]
   let s = Math.floor((Math.random()*3))
   let n = 0
   n = Math.floor((Math.random()*shareUuidArr.length))
@@ -208,7 +208,7 @@ async function run() {
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
     if($.index == 1){
-      $.shareUuid = $.actorUuid
+    //  $.shareUuid = $.actorUuid
       console.log(`后面的号都会助力:${$.shareUuid}`)
     }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
