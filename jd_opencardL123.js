@@ -18,7 +18,7 @@ cron:11 6,19,21 17-23 4 *
 
 
 */
-let opencard_toShop = "false"
+let opencard_toShop = "true"
 const $ = new Env('4.17-4.23 我的新家 超级配');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
