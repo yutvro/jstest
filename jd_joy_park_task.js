@@ -6,17 +6,17 @@ export HELP_JOYPARK=""
 ============Quantumultx===============
 [task_local]
 #汪汪乐园每日任务
-0 0,7,9,17,20 * * * jd_joypark_task.js, tag=汪汪乐园每日任务, img-url=https://raw.githubusercontent.com/tsukasa007/icon/master/jd_joypark_task.png, enabled=true
+0 1,7,20 * * * jd_joypark_task.js, tag=汪汪乐园每日任务, img-url=https://raw.githubusercontent.com/tsukasa007/icon/master/jd_joypark_task.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "0 0,7,9,17,20 * * *" script-path=jd_joypark_task.js,tag=汪汪乐园每日任务
+cron "0 1,7,20 * * *" script-path=jd_joypark_task.js,tag=汪汪乐园每日任务
 
 ===============Surge=================
-汪汪乐园每日任务 = type=cron,cronexp="0 0,7,9,17,20 * * *",wake-system=1,timeout=3600,script-path=jd_joypark_task.js
+汪汪乐园每日任务 = type=cron,cronexp="0 1,7,20 * * *",wake-system=1,timeout=3600,script-path=jd_joypark_task.js
 
 ============小火箭=========
-汪汪乐园每日任务 = type=cron,script-path=jd_joypark_task.js, cronexpr="0 0,7,9,17,20 * * *", timeout=3600, enable=true
+汪汪乐园每日任务 = type=cron,script-path=jd_joypark_task.js, cronexpr="0 1,7,20 * * *", timeout=3600, enable=true
 */
 const $ = new Env('汪汪乐园每日任务');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
@@ -34,9 +34,6 @@ if ($.isNode()) {
 }
 $.invitePinTaskList = []
 $.invitePin = [
-  "VxQJC6Sr0QZkcOHwxoTjrw",
-  "oRY9YryofcNg71MZeKSZseKD6P6BJzKv2NBGxfiuJ20",
-  "EDPUVDhR7nUPh3jUGDJ_GyiLt77-wROqWVP2aesRUt8"
 ]
 const JD_API_HOST = `https://api.m.jd.com/client.action`;
 message = ""
@@ -58,17 +55,6 @@ message = ""
 	  $.UA = `jdapp;iPhone;10.1.4;13.1.2;${randomString(40)};network/wifi;model/iPhone8,1;addressid/2308460611;appBuild/167814;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1`
 
       console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
-      await getJoyBaseInfo()
-      if ($.joyBaseInfo && $.joyBaseInfo.invitePin) {
-        $.log(`${$.name} - ${$.UserName}  助力码: ${$.joyBaseInfo.invitePin}`);
-        $.invitePinTaskList.push($.joyBaseInfo.invitePin);
-      } else {
-        $.log(`${$.name} - ${$.UserName}  助力码: null`);
-        $.invitePinTaskList.push('');
-        $.isLogin = false
-        $.log("服务端异常，不知道为啥有时候这样，后面再观察一下，手动执行应该又没问题了")
-        continue
-      }
       if (!$.isLogin) {
         $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {
           "open-url": "https://bean.m.jd.com/bean/signIndex.action"
