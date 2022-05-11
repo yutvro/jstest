@@ -73,7 +73,7 @@ if ($.isNode()) {
     $.msg($.name, '', allMessage)
   }
   let res = await getAuthorShareCode('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/wish.json')
-  $.shareCode = [...$.shareCode, ...(res || [])]
+ // $.shareCode = [...$.shareCode, ...(res || [])]
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
