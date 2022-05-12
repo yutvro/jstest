@@ -67,9 +67,7 @@ if ($.isNode()) {
       $.ADID = getUUID("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 1);
       $.UUID = getUUID("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
       authorCodeList = [  
-                '1e1f4c6ed1d048c9a3cfae6e7628443d',
-				'aa7aa582b95b4c3f8cfb5cacc62139a0',
-				'2915d7ecbb14466f8d102c01839b4461',
+                'ef89762db91641299482cd8f744f7b17',
       ];
       // $.authorCode = authorCodeList[random(0, authorCodeList.length)];
       $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
@@ -194,10 +192,10 @@ function task(function_id, body, isCommon = 0, own = 0) {
                     $.log(`开启【${data.data.shareTitle}】活动`);
                     $.log("-------------------");
                     if ($.index === 1) {
-                      ownCode = data.data.actorUuid;
+                      ownCode = 'ef89762db91641299482cd8f744f7b17';
                       console.log(ownCode);
                     }
-                    $.actorUuid = data.data.actorUuid;
+                    $.actorUuid = 'ef89762db91641299482cd8f744f7b17';
                   } else {
                     $.log("活动已经结束");
                   }

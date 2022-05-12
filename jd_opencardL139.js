@@ -12,11 +12,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:40 14 13-20 5 *
+cron:40 0,14 13-20 5 *
 ============Quantumultx===============
 [task_local]
 #5.12-5.20 臻爱陪伴 助力成长
-40 14 13-20 5 * jd_opencardL139.js, tag=5.12-5.20 臻爱陪伴 助力成长, enabled=true
+40 0,14 13-20 5 * jd_opencardL139.js, tag=5.12-5.20 臻爱陪伴 助力成长, enabled=true
 
 */
 const $ = new Env("臻爱陪伴 助力成长");
@@ -69,9 +69,7 @@ if ($.isNode()) {
             $.ADID = getUUID("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 1);
             $.UUID = getUUID("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
             authorCodeList = [
-                '3f848aaf47374459896df751d6e628eb',
-				'a698781edc0b4f3f855bfbee4e429ec8',
-				'7969bf0b16ca4f0c928845ec1165d930',
+                '126f446cfafb4310b9bb6a6e5e6945ab',
             ];
             // $.authorCode = authorCodeList[random(0, authorCodeList.length)];
             $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
@@ -220,10 +218,10 @@ function task(function_id, body, isCommon = 0, own = 0) {
                                         $.log(`开启【${data.data.activityName}】活动`);
                                         $.log("-------------------");
                                         if ($.index === 1) {
-                                            ownCode = data.data.actorUuid;
+                                            ownCode = '126f446cfafb4310b9bb6a6e5e6945ab';
                                             console.log(ownCode);
                                         }
-                                        $.actorUuid = data.data.actorUuid;
+                                        $.actorUuid = '126f446cfafb4310b9bb6a6e5e6945ab';
                                     } else {
                                         $.log("活动已经结束");
                                     }
