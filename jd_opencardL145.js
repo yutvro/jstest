@@ -16,7 +16,7 @@ cron:55 3 16-20 5 *
 ============Quantumultx===============
 [task_local]
 #5.15-5.20 哆啦宝妈 鲜气驾到
-5 3 16-20 5 * jd_opencardL145.js, tag=5.15-5.20 哆啦宝妈 鲜气驾到, enabled=true
+5 13,3 16-20 5 * jd_opencardL145.js, tag=5.15-5.20 哆啦宝妈 鲜气驾到, enabled=true
 
 */
 const $ = new Env('5.15-5.20 哆啦宝妈 鲜气驾到');
@@ -51,10 +51,10 @@ let activityCookie =''
     return;
   }
   $.activityId = "c214ecb8adb84d6fb3135bee724ab39f"
-  $.shareUuid = "4f3dd5d1e80b421cbb3ea1fa66938f74"
+  $.shareUuid = "9b89b47df1374f149f489d43cf8f16e2"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   console.log(`每日前5名邀请才有奖励，自行调整，有水无水自测`)
-  let shareUuidArr = ["4f3dd5d1e80b421cbb3ea1fa66938f74","1f5e52e1772947ddb402372353493c6c","3ef6cdd8c42943a4bc20bb87bd0a0764"]
+  let shareUuidArr = ["9b89b47df1374f149f489d43cf8f16e2"]
   let s = Math.floor((Math.random()*3))
   let n = 0
   n = Math.floor((Math.random()*shareUuidArr.length))
@@ -211,7 +211,7 @@ async function run() {
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
     if($.index == 1){
-      $.shareUuid = $.actorUuid
+     // $.shareUuid = $.actorUuid
       console.log(`后面的号都会助力:${$.shareUuid}`)
     }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
